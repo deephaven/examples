@@ -2,7 +2,7 @@
 
 The `metriccentury.csv` file contains observations of a bicycle ride of 100 kilometers. Every second, the rider's heart rate, speed, cumulative distance, and power output are recorded. Each observation also includes 3D GPS positioning that reveals the absolute position and elevation of the rider.
 
-The set has 16987 observations that span five hours, 36 minutes of elapsed time.
+The set has 16987 observations that span five hours and 36 minutes of elapsed time.
 
 ## Fields ##
 - **Time:** UTC time of this observation
