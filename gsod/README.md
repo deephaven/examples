@@ -35,7 +35,7 @@ There are fourteen fields recorded in the observation file. The `USAF` and `WBAN
 - **TemperatureF:** mean temperature of the day, in Fahrenheit
 - **DewPointF:** mean dew-pont temperature of the day, in Fahrenheit 
 - **SeaLevelPressureMB:** average normalized sea-level pressure in millibars
-- **StationPressureMB:** average station atmospheric pressure in millibars:
+- **StationPressureMB:** average station atmospheric pressure in millibars
 - **VisibilityFeet:** Average visibility, in feet
 - **MeanWindSpeedMPH:** average wind speed in miles per hour
 - **MaxWindSpeedMPH:** maximum wind speed in miles per hour
