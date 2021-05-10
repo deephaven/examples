@@ -31,7 +31,7 @@ There are fourteen fields recorded in the observation file. The `USAF` and `WBAN
 
 - **USAF:** US Air Force identifier for the station
 - **WBAN:** five-digit WBAN (Weather Bureau Army-Navy) identifier for the station
-- **ObservationDate:** Date of the observation, as YYYMMDD
+- **ObservationDate:** date of the observation, as YYYMMDD
 - **TemperatureF:** mean temperature of the day, in Fahrenheit
 - **DewPointF:** mean dew-pont temperature of the day, in Fahrenheit 
 - **SeaLevelPressureMB:** average normalized sea-level pressure in millibars
