@@ -12,7 +12,7 @@ The data has these fields:
 - **SepalWidthCM:** width of the sepal sample in centimeters
 - **PetalLengthCM:** length of the petal sample in centimeters
 - **PetalWidthCM:** width of the petal sample in centimeters
-- **Class:** One of "Iris-setosa", "Iris-versicolor", or "Iris-verginica"
+- **Class:** one of "Iris-setosa", "Iris-versicolor", or "Iris-verginica"
 
 ## Source
 
@@ -20,4 +20,3 @@ Fisher, R. A. ("The use of multiple measurements in taxonomic problems")[https:/
 
 Dua, D. and Graff, C. (2019). (UCI Machine Learning Repository)[http://archive.ics.uci.edu/ml]. Irvine, CA: University of 
 California, School of Information and Computer Science.
-
