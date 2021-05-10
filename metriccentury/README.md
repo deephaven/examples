@@ -1,4 +1,4 @@
-# Metric Century #
+# Metric Century 
 
 The `metriccentury.csv` file contains observations of a bicycle ride of 100 kilometers. Every second, the rider's heart rate, speed, cumulative distance, and power output are recorded. Each observation also includes 3D GPS positioning that reveals the absolute position and elevation of the rider.
 
