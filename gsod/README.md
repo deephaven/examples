@@ -4,7 +4,7 @@ This directory contains daily weather observations from 19 different locations a
 
 The samples come from the NOAA Global Surface Summary of the Day (GSOD) collection.
 
-The `station_data.csv` file describes each observation station; there are data files name after each city where the observations were made. Because stations began recording data at different times, the files have unequal starting points.
+The `station_data.csv` file describes each observation station; there are data files named after each city where the observations were made. Because stations began recording data at different times, the files have unequal starting points.
 
 
 ## Fields in the `station_data.csv` file
