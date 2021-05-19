@@ -18,7 +18,7 @@ The set has 16987 observations recorded over a span of 5 hours and 36 minutes.
 
 - One clear problem is false precision. Most values are expressed to eight or ten decimal places, when that precision isn't justified. For example, the rider's altitude is certainly not reliably known to the micro-meter.
 - GPS selective availability causes vibration at rest, or jumps while moving.
-- Sensors may occasional report unlikely or impossible values.
+- Sensors may occasionally report unlikely or impossible values.
 - The rider sometimes stops, so there are gaps in the time-line.
 
 ## Simple queries ##
