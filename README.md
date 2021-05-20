@@ -15,4 +15,4 @@ This directory contains several sample data sets:
 
 ## After Installation
 
-The commands above populate `deephaven-core/docker/core/data/examples` with the three sample data sets.
+The commands above populate `docker/core/data/examples` in the `deephaven-core` clone with the three sample data sets.
