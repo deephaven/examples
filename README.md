@@ -7,3 +7,12 @@ This directory contains several sample data sets:
 * **iris:** Iris species classification data
 * **metriccentury:** position and performance information of a cyclist during a long bicycle ride
 
+## Installation Instructions
+1. Clone the repo ``https://github.com/deephaven/deephaven-core`
+2. From the root of your clone, run:
+   1. `docker build -t deephaven/examples samples`
+   2. `docker run --rm -v "$(pwd)/docker/core/data:/data" deephaven/examples download`
+
+## After Installation
+
+The commands above populate `deephaven-core/docker/core/data/examples` with the three sample data sets.
