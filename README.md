@@ -1,6 +1,6 @@
 # Example Data Sets
 
-This repository contains three open source data sets.  They are intended to be used as part of an introduction to the Deephaven Community Core Engine.  For more information, check out [Deephaven Community Core][https://github.com/deephaven/deephaven-core]
+This repository contains three open source data sets.  They are intended to be used as part of an introduction to the Deephaven Community Core Engine.  For more information, check out [Deephaven Community Core](https://github.com/deephaven/deephaven-core).
 
 ## Table of Contents
 
