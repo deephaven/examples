@@ -9,7 +9,7 @@ This directory contains several sample data sets:
 
 ## Installation Instructions
 1. Clone the repo `https://github.com/deephaven/deephaven-core`
-2. From the root of your clone, run:
+2. From the root of your `deephaven-core` clone, run:
    1. `docker build -t deephaven/examples samples`
    2. `docker run --rm -v "$(pwd)/docker/core/data:/data" deephaven/examples download`
 
