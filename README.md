@@ -1,6 +1,6 @@
 # Example Data Sets
 
-This repository contains three open source data sets.  They are intended to be used as part of an introduction to the Deephaven Community Core Engine.  For more information, check out [Deephaven Community Core](https://github.com/deephaven/deephaven-core).
+This repository contains three open source data sets.  They are intended to be used as part of an introduction to the Deephaven Community Core engine.  For more information on that, check out [Deephaven Community Core](https://github.com/deephaven/deephaven-core).
 
 ## Table of Contents
 
@@ -15,8 +15,11 @@ Each folder in this repository has two items within:
  - `README` - An explanation of everything about the data
  - `csv` - A folder with all relevant CSV files
 
+All data in this repository is stored in standard CSV format.  The `README` in each directory describes everything you need to know about the data.
+
 ## Installation Instructions
-1. Clone the repo `https://github.com/deephaven/deephaven-core`
+
+1. Follow the README instructions on [Deephaven Community Core](https://github.com/deephaven/deephaven-core)
 2. From the root of your `deephaven-core` clone, run:
    1. `docker build -t deephaven/examples samples`
    2. `docker run --rm -v "$(pwd)/docker/core/data:/data" deephaven/examples download`
