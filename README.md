@@ -19,7 +19,7 @@ All data in this repository is stored in standard CSV format.  The `README` in e
 
 ## Installation Instructions
 
-1. Follow the README instructions on [Deephaven Community Core](https://github.com/deephaven/deephaven-core)
+1. Follow the README instructions on [Deephaven Community Core](https://github.com/deephaven/deephaven-core) for installing the OSS client and all required dependencies.
 2. From the root of your `deephaven-core` clone, run:
    1. `docker build -t deephaven/examples samples`
    2. `docker run --rm -v "$(pwd)/docker/core/data:/data" deephaven/examples download`
