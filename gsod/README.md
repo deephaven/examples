@@ -42,7 +42,7 @@ There are fourteen fields recorded in the observation file. The `USAF` and `WBAN
 - **MaxGustSpeedMPH:** peak guest wind speed in miles per hour
 - **MaxTemperatureF:** maximum temperature, in Fahrenheit
 - **MinTemperatureF:** minimum temperature, in Fahrenheit
-- **PreciptitationInches:** total precipitation, in inches
+- **PrecipitationInches:** total precipitation, in inches
 
 
 A Station may fail to report or compute fields for every observation, so some fields are null for some observations. Records in the file are not guaranteed to be ordered by `ObservationDate`.

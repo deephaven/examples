@@ -1,4 +1,4 @@
-USAF,WBAN,ObservationDate,TemperatureF,DewPointF,SeaLevelPressureMB,StationPressureMB,VisibilityFeet,MeanWindSpeedMPH,MaxWindSpeedMPH,MaxGustSpeedMPH,MaxTemperatureF,MinTemperatureF,PreciptitationInches
+USAF,WBAN,ObservationDate,TemperatureF,DewPointF,SeaLevelPressureMB,StationPressureMB,VisibilityFeet,MeanWindSpeedMPH,MaxWindSpeedMPH,MaxGustSpeedMPH,MaxTemperatureF,MinTemperatureF,PrecipitationInches
 162430,99999,19440301,48.0,44.7,1002.5,,11.8,5.7,15.9,,50.4,45.3,99.99
 162430,99999,19440302,43.7,41.1,1007.1,,99.4,0.0,,,44.4,42.4,0.0
 162430,99999,19440307,46.0,39.2,1017.8,,81.5,0.8,4.1,,49.3,42.4,0.0
