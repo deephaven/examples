@@ -7,6 +7,7 @@ This repository contains three open source data sets.  They are intended to be u
 - **[`gsod`](https://catalog.data.gov/dataset/global-surface-summary-of-the-day-gsod)** - Global Surface Summary of the Day (GSOD) weather data
 - **[`iris`](https://archive.ics.uci.edu/ml/datasets/iris)** - The iris flower data set from Ronald Fisher's 1936 paper
 - **[`metriccentury`](https://github.com/mikeblas/samples-junk/tree/main/metriccentury)** - Data recorded from a 100 km bike ride
+- **[`DeNiro`](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)** - Data on Robert De Niro's movies up to 2016
 
 ## Description
 
@@ -26,4 +27,4 @@ All data in this repository is stored in standard CSV format.  The `README` in e
 
 ## After Installation
 
-The commands above populate `docker/core/data/examples` in the `deephaven-core` clone with all of the data.
+The commands above mount `docker/core/data/examples` in the `deephaven-core` clone with all of the data.  This corresponds to `/data` within the docker container.
