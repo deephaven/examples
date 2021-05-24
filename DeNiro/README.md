@@ -2,7 +2,7 @@
 
 This folder contains two files, each containing information about Robert De Niro's movies up until 2016.
 
-## Table of ontents
+## Table of contents
 
 - `deniro.csv`: A standard format CSV file with a header line that contains data on Robert De Niro's movies
 - `deniro_headerless.csv`: A standard format CSV file without a header line that contains data on Robert De Niro's movies
