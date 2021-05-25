@@ -25,4 +25,4 @@ Each folder in this repository has two items within:
    1. `docker build -t deephaven/examples samples`
    2. `docker run --rm -v "$(pwd)/docker/core/data:/data" deephaven/examples download`
 
-The commands above mount `docker/core/data/examples` in the `deephaven-core` clone as `/data` within the docker container.
+The commands above mount `docker/core/data/examples` in the `deephaven-core` clone as `/data/examples` within the docker container.
