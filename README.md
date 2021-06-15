@@ -14,7 +14,7 @@ The following folders can be found in this repository:
 
 ## Description
 
-Each folder in this repository has items within:
+Each folder in this repository has two items within:
 
  - `README` - An explanation of everything about the data
  - `csv` - A folder with all relevant data in either CSV or TSV format
