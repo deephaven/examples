@@ -1,6 +1,6 @@
 # Parquet Sample data
 
-This folder contains sample parquet files.
+This folder contains sample parquet files that work within the Deephaven console. 
 
 ## Table of contents
 
@@ -31,4 +31,3 @@ This folder contains sample parquet files.
 # Source and License
 
 This data was built from data sets publicly available on [Microsoft Azure](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). It is provided here for demonstrative use without any warranty as to the accuracy, reliability, or completeness of the data.
-
