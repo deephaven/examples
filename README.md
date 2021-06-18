@@ -10,7 +10,6 @@ The following folders can be found in this repository:
 - **[`iris`](https://archive.ics.uci.edu/ml/datasets/iris)** - The iris flower data set from Ronald Fisher's 1936 paper
 - **[`metriccentury`](https://github.com/mikeblas/samples-junk/tree/main/metriccentury)** - Data recorded from a 100 km bike ride
 - **[`DeNiro`](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)** - Data on Robert De Niro's movies up to 2016
-- **`parquet`** - Sample parquet data in many formats
 
 ## Description
 
@@ -18,8 +17,6 @@ Each folder in this repository except parquet has two items within:
 
  - `README` - An explanation of everything about the data
  - `csv` - A folder with all relevant data in either CSV or TSV format
- 
-parquet instead contains a `parquet` folder with all relevant data in a a variety of parquet formats
 
 ## Installation Instructions
 

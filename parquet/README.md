@@ -1,6 +1,6 @@
 # Parquet Sample data
 
-This folder contains sample parquet files that work within the Deephaven console. 
+This folder contains sample parquet files that work within the Deephaven console.
 
 ## Table of contents
 
