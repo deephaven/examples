@@ -1,6 +1,6 @@
 # Iris Data
 
-This sample contains the observations about iris sepal and petal length from R. A. Fisher's classic 1950 paper, "The Use of Multiple Measurements in Taxonomic Problems". The paper describes categorizing plant varieties by using observable metrics of plants. The data is often used to demonstrate machine learning categorization algorithms.
+This sample contains the observations about iris sepal and petal length from R. A. Fisher's classic 1936 paper, "The Use of Multiple Measurements in Taxonomic Problems". The paper describes categorizing plant varieties by using observable metrics of plants. The data is often used to demonstrate machine learning categorization algorithms.
 
 There are 150 observations in the data set, each with a class identifying a species of iris flower upon which the observations were made.
 
