@@ -7,9 +7,7 @@ This folder contains sample data files concerning taxi rides in NYC from October
 - `taxi.parquet`: uncompressed parquet data format
 - `taxi.csv`: csv data format
 
-## Fields in the `taxi.parquet` file
-
-`station_data.csv` has 17 fields:
+## Fields
 
   - **int64** VendorID
   - **int64**  tpep_pickup_datetime (TIMESTAMP(MICROS,false))
