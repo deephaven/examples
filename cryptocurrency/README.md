@@ -5,11 +5,13 @@ The script will pull live and historical data for specified cryptocurencies from
 ## Variables
 - **timeToWatch:** Integer number of minutes to run the script.
 - **secondsToSleep:** Integer number of seconds between data pulls.  Note that too frequent of requests will generate an HTTP status '429 Too Many Requests'. It is recommended that this number does not exceed 10 or higher.
-- **getHistory:** Boolean value, if one wants only live data or live and historical.
+- **getHistory:** Boolean value, 
+   -  `false` if one wants only live data.
+   -  `true` if one wants live and historical data.
 - **daysHistory:** Integer number of days to collect history. Data has automatic granularity. 
    - Minutely data will be used for a duration within 1 day.
    - Hourly data will be used for a duration between 1 day and 90 days.
-    - Daily data will be used for a duration above 90 days.
+   - Daily data will be used for a duration above 90 days.
 - **ids:** Array of coins to pull information. For a full and current list of values execute the following: `curl -X GET "https://api.coingecko.com/api/v3/coins/list" -H "accept: application/json"`
 
 
