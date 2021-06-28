@@ -17,7 +17,7 @@ daysHistory = 90 # if getHistory = true the days to pull
 #coins to get data on so far
 ids=['bitcoin', 'ethereum','litecoin', 'dogecoin', 'tether', 'binancecoin','cardano', 'ripple', 'polkadot']
 
-#tables to merge curr and prev data
+#tables to merge current and previous data
 tableArray=[]
 
 DynamicTableWriter = jpy.get_type("io.deephaven.db.v2.utils.DynamicTableWriter")#org.joda.time.base.BaseDateTime works
