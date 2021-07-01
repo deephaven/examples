@@ -7,6 +7,7 @@ from time import sleep
 from deephaven.DBTimeUtils import convertDateTime, secondsToTime, millisToTime
 import threading
 import time
+import pandas as pd
 
 timeToWatch = 2 # minutes to keep table updating
 secondsToSleep = 10 # should be 10 or higher. If too fast will hit request limit
