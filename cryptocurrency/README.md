@@ -23,6 +23,12 @@ This table can be sorted on the DateTime column to see new data streaming in.
 
 ![img](./crypto1.png)
 
+- **DateTime:** The date and time that coin value was updated.  This will pull new data in every `secondsToSleep`.  Only new data will be added to table, if the coin value did not change then no new data will populate. 
+- **Coins:** The name of the coin. 
+- **prices:** refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
+- **market_caps:** is one of the metrics used to measure the relative size of a coin. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
+- **total_volumes:** is the total trading volume of a coin across all active coin exchanges tracked by CoinGecko.
+
 
 # Source and License
 
