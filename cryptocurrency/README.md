@@ -15,6 +15,13 @@ The script will pull live and historical data for specified cryptocurencies from
 - **ids:** Array of coins to pull information. For a full and current list of values execute the following: `curl -X GET "https://api.coingecko.com/api/v3/coins/list" -H "accept: application/json"`
 
 
+# Outcome
+
+Upon running the script in your Deephaven IDE the `results` table will be created.  
+
+This table can be sorted on the DateTime column to see new data streaming in.
+
+![img](./crypto1.png)
 
 
 # Source and License
