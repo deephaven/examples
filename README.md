@@ -27,4 +27,14 @@ Each folder in this repository has the following structure within:
    1. `docker build -t deephaven/examples samples`
    2. `docker run --rm -v "$(pwd)/docker/core/data:/data" deephaven/examples download`
 
-The commands above mount `docker/core/data/examples` in the `deephaven-core` clone as `/data/examples` within the docker container.
+The `docker build` command builds a Docker container which hosts a script that helps manage the examples. That script will automate the management of the example files, allowing you to download and update the example files without directly working with the git project hosting the examples. This command is only needed once; after it runs, the container is available to use on your host.
+
+The `docker run` command runs that new container, letting it know that the examples will end up in your `deephaven-core/docker/core/data` path. When Deephaven runs in its containers, this directory from the host is mounted inside the container as `/data/examples`.
+
+You can run `docker run` again to manage the example data -- for example, to download a new version, or remove the sample data. This command:
+
+	`docker run --rm -v "$(pwd)/docker/core/data:/data" deephaven/examples`
+
+will run the contained script and show usage for the different commands it offers.
+
+
