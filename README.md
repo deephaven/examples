@@ -32,9 +32,6 @@ The `docker build` command builds a Docker container containing a script that he
 
 The `docker run` command runs that new container, letting it know that the examples will end up in your `deephaven-core/docker/core/data` path. When Deephaven runs in its containers, this directory from the host is mounted inside the container as `/data/examples`.
 
-You can run `docker run` again to manage the example data -- for example, to download a new version, or remove the sample data. This command:
+You can run `docker run` again to manage the example data -- for example, to download a new version. To see what options are available, run:
 
 	`docker run --rm -v "$(pwd)/docker/core/data:/data" deephaven/examples`
-
-will run the contained script and show usage for the different commands it offers.
-
