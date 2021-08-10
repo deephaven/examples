@@ -38,7 +38,9 @@ The `docker run` command downloads the example data by running the examples mana
 
 You can run `docker run` again to manage the example data -- for example, to download a new version. To see what options are available, run:
 
-	`docker run --rm -v "$(pwd)/docker/core/data:/data" ghcr.io/deephaven/examples`
+    ```
+    docker run --rm -v "$(pwd)/docker/core/data:/data" ghcr.io/deephaven/examples
+    ```
 
 ## Build Instructions
 
