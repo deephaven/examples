@@ -30,7 +30,9 @@ The examples script image can be pulled via:
     ```
 
 To download the examples, from the root of your `deephaven-core` clone, run:
-    `docker run --rm -v "$(pwd)/docker/core/data:/data" ghcr.io/deephaven/examples download`
+    ```
+    docker run --rm -v "$(pwd)/docker/core/data:/data" ghcr.io/deephaven/examples download
+    ```
 
 The `docker run` command downloads the example data by running the examples management container.  The `-v "$(pwd)/docker/core/data:/data"` argument mounts your local `$(pwd)/docker/core/data` path as `/data` in the container.  The example data is stored to `/data/examples` inside the container, which is `$(pwd)/docker/core/data/examples` on the local filesystem.
 
