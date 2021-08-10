@@ -25,7 +25,9 @@ Each folder in this repository has the following structure within:
 ## Installation Instructions
 
 The examples script image can be pulled via: 
-    `docker pull ghcr.io/deephaven/examples`
+    ```
+    docker pull ghcr.io/deephaven/examples
+    ```
 
 To download the examples, from the root of your `deephaven-core` clone, run:
     `docker run --rm -v "$(pwd)/docker/core/data:/data" ghcr.io/deephaven/examples download`
