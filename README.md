@@ -45,7 +45,9 @@ You can run `docker run` again to manage the example data -- for example, to dow
 ## Build Instructions
 
 From the root of `examples`, run: 
-    `docker build -t ghcr.io/deephaven/examples docker`
+    ```
+    docker build -t ghcr.io/deephaven/examples docker
+    ```
 
 The `docker build` command builds a Docker container containing a script that helps manage the examples.
 That script will automate the management of the example files.  It allows you to download and update the example files without directly working with the git project hosting the examples.  This `docker build` command is only needed once; after it runs, the container is available to use on your host.
