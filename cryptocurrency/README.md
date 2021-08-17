@@ -1,13 +1,13 @@
 # Cryptocurrency
 
-The script will pull live and historical data for specified cryptocurencies from the [CoinGecko](https://www.coingecko.com/) website into the Deephaven Community Core IDE.
+The script will pull live and historical data for specified cryptocurencies from the [CoinGecko](https://www.coingecko.com/) website into [Deephaven Community Core](****link***).
 
 ## Variables
 - **timeToWatch:** Integer number of minutes to run the script.
-- **secondsToSleep:** Integer number of seconds between data pulls.  Note that too frequent of requests will generate an HTTP status '429 Too Many Requests'. It is recommended that this number does not exceed 10 or higher.
+- **secondsToSleep:** Integer number of seconds between data pulls.  Note that too frequent of requests will generate an HTTP status '429 Too Many Requests'. It is recommended that this number is 10 or higher.
 - **getHistory:** Boolean value, 
-   -  `false` if one wants only live data.
-   -  `true` if one wants live and historical data.
+   -  `false` for only live data.
+   -  `true` for live and historical data.
 - **daysHistory:** Integer number of days to collect history. Data has automatic granularity. 
    - Minutely data will be used for a duration within 1 day.
    - Hourly data will be used for a duration between 1 day and 90 days.
@@ -17,13 +17,13 @@ The script will pull live and historical data for specified cryptocurencies from
 
 # Outcome
 
-Upon running the script in your Deephaven IDE the `results` table will be created.  
+Upon running the script in your Deephaven IDE the `result` table will be created.  
 
 This table can be sorted on the DateTime column to see new data streaming in.
 
 ![img](./crypto1.png)
 
-- **DateTime:** The date and time that coin value was updated.  This will pull new data in every `secondsToSleep`.  Only new data will be added to table, if the coin value did not change then no new data will populate. 
+- **DateTime:** The date and time that the coin value was updated.  Changes are queried every `secondsToSleep`.  Only new data will be added to the table.  If the coin value did not change then no new data will populate. 
 - **Coins:** The name of the coin. 
 - **prices:** refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
 - **market_caps:** is one of the metrics used to measure the relative size of a coin. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
@@ -32,4 +32,4 @@ This table can be sorted on the DateTime column to see new data streaming in.
 
 # Source and License
 
-This script was built using the CoinGecko crypto API.  This allows one to track over 7,000 coins such as bitcoin, litecoin, and ethereum from more than 400 exchanges and growing.
+This script was built using the [CoinGecko crypto API](https://www.coingecko.com/).  This allows one to track over 7,000 coins such as bitcoin, litecoin, and ethereum from more than 400 exchanges and growing.
