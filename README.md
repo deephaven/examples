@@ -9,7 +9,7 @@ This repository contains open source data sets.  They are intended to be used as
 The following folders can be found in this repository:
 
 - **[`DeNiro`](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)** - Data on Robert De Niro's movies up to 2016
-- ** docker ** - Dockerfile and script to successfully downloads and mounts all example data
+- ** docker ** - Dockerfile and script to successfully download and mount all example data
 - **[`gsod`](https://catalog.data.gov/dataset/global-surface-summary-of-the-day-gsod)** - Global Surface Summary of the Day (GSOD) weather data
 - **[`iris`](https://archive.ics.uci.edu/ml/datasets/iris)** - The iris flower data set from Ronald Fisher's 1936 paper
 - **[`metriccentury`](https://github.com/mikeblas/samples-junk/tree/main/metriccentury)** - Data recorded from a 100 km bike ride
