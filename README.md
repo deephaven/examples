@@ -13,7 +13,6 @@ The following folders can be found in this repository:
 - **[`metriccentury`](https://github.com/mikeblas/samples-junk/tree/main/metriccentury)** - Data recorded from a 100 km bike ride
 - **[`DeNiro`](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)** - Data on Robert De Niro's movies up to 2016
 - **[`Taxi`](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)** - Yellow taxi trip records
-- **[`synthcity`](http://www.synthcity.xyz/download.html)** - Synthetic full color Mobile Laser Scanning point cloud in a typical Urban/Suburban environment.
 
 ## Description
 
@@ -25,7 +24,7 @@ Each folder in this repository has the following structure within:
 
 ## Installation Instructions
 
-The examples script image can be pulled via:
+The examples script image can be pulled via: 
 
 ```
 docker pull ghcr.io/deephaven/examples
