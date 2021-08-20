@@ -6,12 +6,11 @@ This repository contains open source data sets.  They are intended to be used as
 
 The following folders can be found in this repository:
 
-- **[`cryptocurrency`](https://www.coingecko.com/)** - Script to pull live and historical data for specified cryptocurencies
 - **[`gsod`](https://catalog.data.gov/dataset/global-surface-summary-of-the-day-gsod)** - Global Surface Summary of the Day (GSOD) weather data
 - **[`iris`](https://archive.ics.uci.edu/ml/datasets/iris)** - The iris flower data set from Ronald Fisher's 1936 paper
 - **[`metriccentury`](https://github.com/mikeblas/samples-junk/tree/main/metriccentury)** - Data recorded from a 100 km bike ride
 - **[`DeNiro`](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)** - Data on Robert De Niro's movies up to 2016
-- **[`pems`](https://pems.dot.ca.gov/)** - Traffic flow data collected near Davis, CA. 
+- **[`pems`](https://pems.dot.ca.gov/)** - Traffic flow data collected near Davis, CA.
 - **[`Taxi`](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)** - Yellow taxi trip records
 
 ## Description
