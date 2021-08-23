@@ -3,7 +3,7 @@
 This folder contains data files concerning [Caltrans Performance Measurement System (PeMS)](https://pems.dot.ca.gov/) traffic flow.
 These partitioned Parquet files are provided by [Clark Fitzgerald](https://anson.ucdavis.edu/~clarkf/) and show the ability to read such structured files in Deephaven Community Core.
 
-The data represent aggregate traffic flow collected every 30 seconds from raw sensors on the three lanes of traffic, from January to October 2016, for a location of the I-80 corridor near Davis, CA.
+The data represents aggregate traffic flow collected every 30 seconds from raw sensors on the three lanes of traffic, from January to October 2016, for a location of the I-80 corridor near Davis, CA.
 
 PeMS computes performance measures from sensor measurements of vehicle count (flow), occupancy, and speed automatically collected on the freeway.
 - Occupancy is a measure of how much of the roadway is covered by vehicles.  
