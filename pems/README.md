@@ -13,6 +13,8 @@ In this location there are only three lanes so only three sensors of information
 ## Table of contents
 
 - `parquet`: directory containing partitioned Parquet data
+-- `_common_metadata`: file contains the schema for the whole dataset, including those hierarchical columns and those not in this specific section of the data.
+-- `_metadata`: file contains the schema used for part files (omitting the hierarchical columns) and also includes per-file column stats (min, max, etc) for all the files, with their complete relative path names.
 
 ## Fields
 
