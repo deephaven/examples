@@ -13,8 +13,8 @@ In this location there are only three lanes so only three sensors of information
 ## Table of contents
 
 - `parquet`: Directory containing partitioned Parquet data.
-- `_common_metadata`: File containing information to ease reading the whole dataset without reading column names from individual files, including column headers from the whole dataset and just those from this specific section of the data.
-- `_metadata`: File containing column statistics such as min, max, etc., for the individual files, along with complete relative path names.
+- `_common_metadata`: File containing schema information needed to load the whole dataset faster.  
+- `_metadata`: File containing (1) complete relative pathnames to individual data files and (2) column statistics, such as min, max, etc., for the individual data files.
 
 ## Fields
 
