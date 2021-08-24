@@ -12,22 +12,22 @@ The script will pull live and historical data for specified cryptocurencies from
    - Minutely data will be used for a duration within 1 day.
    - Hourly data will be used for a duration between 1 day and 90 days.
    - Daily data will be used for a duration above 90 days.
-- **ids:** Array of coins to pull information. For a full and current list of values execute the following: `curl -X GET "https://api.coingecko.com/api/v3/coins/list" -H "accept: application/json"`
+- **ids:** Array of coins used to pull information. For a full and current list of values, execute the following: `curl -X GET "https://api.coingecko.com/api/v3/coins/list" -H "accept: application/json"`
 
 
 # Outcome
 
-Upon running the script in your Deephaven IDE the `result` table will be created.  
+Upon running the script in your Deephaven IDE, the `result` table will be created.  
 
-This table can be sorted on the DateTime column to see new data streaming in.
+This table can be sorted on the `DateTime` column to see new data streaming in.
 
 ![img](./crypto1.png)
 
-- **DateTime:** The date and time that the coin value was updated.  Changes are queried every `secondsToSleep`.  Only new data will be added to the table.  If the coin value did not change then no new data will populate. 
+- **DateTime:** The date and time that the coin value was updated.  Changes are queried every `secondsToSleep`.  Only new data will be added to the table.  If the coin value did not change, then no new data will populate. 
 - **Coins:** The name of the coin. 
-- **prices:** refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
-- **market_caps:** is one of the metrics used to measure the relative size of a coin. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
-- **total_volumes:** is the total trading volume of a coin across all active coin exchanges tracked by CoinGecko.
+- **prices:** Refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
+- **market_caps:** One of the metrics used to measure the relative size of a coin. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
+- **total_volumes:** The total trading volume of a coin across all active coin exchanges tracked by CoinGecko.
 
 
 # Source and License
