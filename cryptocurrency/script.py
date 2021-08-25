@@ -2,13 +2,15 @@
 import os
 os.system("pip install pycoingecko") 
 
-from deephaven import jpy
 from pycoingecko import CoinGeckoAPI
+
+from deephaven.DBTimeUtils import secondsToTime, millisToTime
 from deephaven.TableTools import merge
+from deephaven import DynamicTableWriter
+import deephaven.types as dht
+
 from time import sleep
-from deephaven.DBTimeUtils import convertDateTime, secondsToTime, millisToTime
 import threading
-import time
 import pandas as pd
 
 timeToWatch = 2 # minutes to query crypto prices
@@ -17,14 +19,14 @@ secondsToSleep = 10 # should be 10 or higher. If too fast will hit request limit
 getHistory = True
 daysHistory = 90 # if getHistory = true the days to pull
 
-#coins to get data on so far
+#coins to get data
 ids=['bitcoin', 'ethereum','litecoin', 'dogecoin', 'tether', 'binancecoin', 'cardano', 'ripple', 'polkadot']
 
 # array of current and previous data
 tableArray=[]
 
-DynamicTableWriter = jpy.get_type("io.deephaven.db.v2.utils.DynamicTableWriter")#org.joda.time.base.BaseDateTime works
-tableWriter = DynamicTableWriter(["Coins", "DateTime", "prices", "market_caps", "total_volumes"], [jpy.get_type("java.lang.String"), jpy.get_type("io.deephaven.db.tables.utils.DBDateTime"), jpy.get_type("double"), jpy.get_type("double"), jpy.get_type("double")])
+DynamicTableWriter = jpy.get_type("io.deephaven.db.v2.utils.DynamicTableWriter")
+tableWriter = DynamicTableWriter(["coin", "dateTime", "price", "marketCap", "totalVolume"], [dht.string, dht.DBDateTime, dht.double, dht.double, dht.double])
 
 tableArray.append(tableWriter.getTable())
 
@@ -35,15 +37,16 @@ if getHistory:
     for names in ids:
         coin_data_hist = cg.get_coin_market_chart_by_id(names, vs_currency="usd", days=daysHistory)
         sub = pd.DataFrame(coin_data_hist)
-        tableArray.append(dataFrameToTable(sub).update("Coins = names").update("DateTime= millisToTime((long)prices_[i][0])", "prices = prices_[i][1]", "market_caps = market_caps_[i][1]", "total_volumes = total_volumes_[i][1]").moveUpColumns("Coins","DateTime"))
+        tableArray.append(dataFrameToTable(sub).update("coin = names").update("dateTime= millisToTime((long)prices_[i][0])", "price = prices_[i][1]", "marketCap = market_caps_[i][1]", "totalVolume = total_volume_[i][1]").moveUpColumns("Coin","DateTime"))
 
-result = merge(tableArray).selectDistinct("DateTime", "Coins", "prices", "market_caps", "total_volumes").sortDescending("DateTime") #add each coin data to the master table
+#add each coin data to the master table
+result = merge(tableArray).selectDistinct("dateTime", "coin", "price", "marketCap", "totalVolume").sortDescending("DateTime") 
 
 def thread_func():
     cg = CoinGeckoAPI()
     cg.get_coins_markets(vs_currency='usd')
 
-    for i in range(int(timeToWatch*60/secondsToSleep)):# number mins 30seconds for update times
+    for i in range(int(timeToWatch*60/secondsToSleep)):
         coin_data = cg.get_price(ids, vs_currencies='usd',
             include_market_cap=True, include_24hr_vol=True, include_24hr_change=False,include_last_updated_at=True)
 
