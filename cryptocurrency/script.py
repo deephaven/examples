@@ -5,12 +5,14 @@ from pycoingecko import CoinGeckoAPI
 
 from deephaven.DBTimeUtils import secondsToTime, millisToTime
 from deephaven.TableTools import merge
-import deephaven.Types as dht
 from deephaven import DynamicTableWriter
+import deephaven.Types as dht
+
 
 from time import sleep
-import threading
 import pandas as pd
+import threading
+
 
 # minutes to query crypto prices
 timeToWatch = 2 
