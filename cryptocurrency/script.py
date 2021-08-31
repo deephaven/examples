@@ -26,7 +26,7 @@ getHistory = False
 # if getHistory = true, the days to pull
 daysHistory = 90 
 
-#coins to get data
+# coins to get data
 ids=['bitcoin', 'ethereum','litecoin', 'dogecoin', 'tether', 'binancecoin', 'cardano', 'ripple', 'polkadot']
 
 # array to store tables for current and previous data
