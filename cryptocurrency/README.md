@@ -1,11 +1,11 @@
 # Cryptocurrency
 
-The script will pull live and historical data for specified cryptocurencies from the [CoinGecko](https://www.coingecko.com/) website into [Deephaven Community Core](****link***).
+The script will pull live and historical data for specified cryptocurencies from the [CoinGecko](https://www.coingecko.com/) website into [Deephaven](https://github.com/deephaven/deephaven-core).
 
 ## Variables
 - **`timeToWatch`:** Integer number of minutes to run the script.
-- **`secondsToSleep`:** Integer number of seconds between data pulls.  Note that too frequent of requests will generate an HTTP status '429 Too Many Requests'. It is recommended that this number is 10 or higher.
-- **`getHistory`:** Boolean value, 
+- **`secondsToSleep`:** Integer number of seconds between data pulls.  It is recommended that this number is 10 or higher. Note that too frequent requests will generate an HTTP status: '429 Too Many Requests'. 
+- **`getHistory`:** Boolean value.
    -  `false` for only live data.
    -  `true` for live and historical data.
 - **`daysHistory`:** Integer number of days to collect history. Data has automatic granularity. 
@@ -22,7 +22,7 @@ Upon running the script in your Deephaven IDE, the `result` table will be create
 This table can be sorted on the `DateTime` column to see new data streaming in.
 
 ![img](./crypto1.png)
-
+The result table includes the following columns:
 - **`DateTime`:** The date and time that the coin value was updated.  Changes are queried every `secondsToSleep`.  Only new data will be added to the table.  If the coin value did not change, then no new data will populate. 
 - **`Coin`:** The name of the coin. 
 - **`price`:** Refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.

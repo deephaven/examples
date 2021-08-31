@@ -17,13 +17,13 @@ import threading
 # minutes to query crypto prices
 timeToWatch = 2 
 
-# secondsToSleep should be be 10 or higher. If too fast will hit request limit
+# secondsToSleep should be 10 or higher. If too fast, will hit request limit.
 secondsToSleep = 10 
 
 
 getHistory = False
 
-# if getHistory = true the days to pull
+# if getHistory = true, the days to pull
 daysHistory = 90 
 
 #coins to get data
