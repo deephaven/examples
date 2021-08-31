@@ -22,7 +22,9 @@ Upon running the script in your Deephaven IDE, the `result` table will be create
 This table can be sorted on the `DateTime` column to see new data streaming in.
 
 ![img](./crypto1.png)
+
 The result table includes the following columns:
+
 - **`DateTime`:** The date and time that the coin value was updated.  Changes are queried every `secondsToSleep`.  Only new data will be added to the table.  If the coin value did not change, then no new data will populate. 
 - **`Coin`:** The name of the coin. 
 - **`price`:** Refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
