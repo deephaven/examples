@@ -9,7 +9,7 @@ from deephaven import DynamicTableWriter
 import deephaven.Types as dht
 
 
-from time import sleep
+from time import sleep, time
 import pandas as pd
 import threading
 
@@ -60,7 +60,7 @@ def thread_func():
             #Add new data to the dynamic table
             tableWriter.logRow( id, secondsToTime(int(coin_data[id]['last_updated_at'])), float(coin_data[id]['usd']), coin_data[id]['usd_market_cap'], coin_data[id]['usd_24h_vol'])
 
-        time.sleep(secondsToSleep)
+        sleep(secondsToSleep)
 
 thread = threading.Thread(target = thread_func)
 thread.start()
