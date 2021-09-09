@@ -8,6 +8,7 @@ This repository contains open source data sets.  They are intended to be used as
 
 The following folders can be found in this repository:
 
+- **[`csvParquet_crypto`](https://www.coingecko.com/)** -Data from [CoinGecko](https://www.coingecko.com/) to highlight use of CSV and Parquet data formats.
 - **[`DeNiro`](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)** - Data on Robert De Niro's movies up to 2016
 - **[`gsod`](https://catalog.data.gov/dataset/global-surface-summary-of-the-day-gsod)** - Global Surface Summary of the Day (GSOD) weather data
 - **[`iris`](https://archive.ics.uci.edu/ml/datasets/iris)** - The iris flower data set from Ronald Fisher's 1936 paper
@@ -25,7 +26,7 @@ Each folder in this repository has the following structure within:
 
 ## Installation Instructions
 
-The examples script image can be pulled via: 
+The examples script image can be pulled via:
 
 ```
 docker pull ghcr.io/deephaven/examples
