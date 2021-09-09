@@ -19,6 +19,7 @@ This folder contains sample data files for Bitcoin and Ethereum in csv and parqu
 - **`close` (double):** The prices at which a coin ended in the period
 - **`volume` (double):** The number of coins traded during the period
 
+
 # Source and License
 
 This script was built using the [CoinGecko crypto API](https://www.coingecko.com/).  This allows one to track over 7,000 coins such as bitcoin, litecoin, and ethereum from more than 400 exchanges and growing.
