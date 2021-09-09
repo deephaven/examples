@@ -1,13 +1,13 @@
 # BTC and ETH sample data
 
-This folder contains sample data files for Bitcoin and Ethereum in csv and parquet format on different days.
+This folder contains sample data files for Bitcoin and Ethereum in CSV and Parquet format on different days.
 
 ## Table of contents
 
-- `crypto_sept7.parquet`: uncompressed parquet data format of BTC and ETH
-- `crypto_sept7.csv`: csv data format of BTC and ETH
-- `crypto_sept8.parquet`: uncompressed parquet data format of BTC and ETH
-- `crypto_sept8.csv`: csv data format of BTC and ETH
+- `crypto_sept7.parquet`: Uncompressed Parquet data format of BTC and ETH.
+- `crypto_sept7.csv`: CSV data format of BTC and ETH.
+- `crypto_sept8.parquet`: Uncompressed Parquet data format of BTC and ETH.
+- `crypto_sept8.csv`: CSV data format of BTC and ETH.
 
 ## Fields
 
@@ -15,9 +15,9 @@ This folder contains sample data files for Bitcoin and Ethereum in csv and parqu
 - **`Coin` (string):** The name of the coin.
 - **`low` (double):** Refers to the current low global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
 - **`high ` (double):** Refers to the current high global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
-- **`open` (double):** The prices at which a coin began in the period
-- **`close` (double):** The prices at which a coin ended in the period
-- **`volume` (double):** The number of coins traded during the period
+- **`open` (double):** The prices at which a coin began in the period.
+- **`close` (double):** The prices at which a coin ended in the period.
+- **`volume` (double):** The number of coins traded during the period.
 
 
 # Source and License
