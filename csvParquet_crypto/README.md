@@ -1,11 +1,11 @@
 # BTC and ETH sample data
 
-This folder contains sample data files for Bitcoin and Ethereum in csv and parquet format on different days.
+This folder contains sample data files for Bitcoin and Ethereum in CSV and Parquet format on different days.
 
 ## Table of contents
 
-- `crypto.parquet`: uncompressed parquet data format of BTC and ETH
-- `crypto.csv`: csv data format of BTC and ETH
+- `crypto.parquet`: uncompressed Parquet data format of BTC and ETH
+- `crypto.csv`: CSV data format of BTC and ETH
 
 ## Fields
 
