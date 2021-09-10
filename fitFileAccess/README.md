@@ -1,6 +1,6 @@
 # Fit file as available from Strava
 
-This folder contains
+Pull your own data from your Strava account. Visualize your data, manipulate your data, combine your data with other sources,  all while maintaining full ownership and control of the data on your own machine environment.
 
 ## Table of contents
 
@@ -42,6 +42,22 @@ For more details on making the install persist between sessions, see:
 https://github.com/deephaven/deephaven.io/blob/main/core/docs/how-to-guides/install-python-packages.md
 
 Note: YMMV if using a fit file which reports different data types. It appears that different sensors can report different data. In the example here, both GPS and heart rate monitor data is intertwined.
+
+## Advanced challenge
+
+Some of the most interesting use cases for this data is to be able to correlate the data with other sources of interest to you.
+
+The first step is importing many fit files to compare:
+* todays heart rate with last months heart rate
+* average heart rate last week/month
+* heart rate at different points during the day (morning, lunch, bedtime)
+* correlate live heart rate data, with past heart rate data from your fit files: see`tickingHeartRate` for ideas on getting started with live heart rate data.
+
+For more insight, correlate this data with:
+* diet macro nutrients - do you run faster when you have more protein?
+* sleep patterns - is heart rate affected by the amount of sleep you have had?
+* weather (temperature, wind chill, humidity)
+* confirming health improvements - do you see positive gains in heart health over time
 
 # Source and License
 
