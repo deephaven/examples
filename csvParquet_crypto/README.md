@@ -4,16 +4,21 @@ This folder contains sample data files for Bitcoin and Ethereum in CSV and Parqu
 
 ## Table of contents
 
-- `crypto.parquet`: uncompressed Parquet data format of BTC and ETH
-- `crypto.csv`: CSV data format of BTC and ETH
+- `crypto_sept7.parquet`: Uncompressed Parquet data format of BTC and ETH.
+- `crypto_sept7.csv`: CSV data format of BTC and ETH.
+- `crypto_sept8.parquet`: Uncompressed Parquet data format of BTC and ETH.
+- `crypto_sept8.csv`: CSV data format of BTC and ETH.
 
 ## Fields
 
   - **`DateTime` (DBdateTime):** The date and time that the coin value was updated.  Changes are queried every `secondsToSleep`.  Only new data will be added to the table.  If the coin value did not change, then no new data will populate.
 - **`Coin` (string):** The name of the coin.
-- **`price` (double):** Refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
-- **`market_cap` (double):** One of the metrics used to measure the relative size of a coin. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
-- **`total_volume` (double):** The total trading volume of a coin across all active coin exchanges tracked by CoinGecko.
+- **`low` (double):** Refers to the current low global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
+- **`high ` (double):** Refers to the current high global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
+- **`open` (double):** The prices at which a coin began in the period.
+- **`close` (double):** The prices at which a coin ended in the period.
+- **`volume` (double):** The number of coins traded during the period.
+
 
 # Source and License
 
