@@ -17,8 +17,9 @@ Self-contained example code and data to simulate a live feed of heart rate data 
    ![Heart rate table starting](heartRateTableStart.png "Heart rate chart")   
 1. The table should continue to tick new rows as each `.csv` file is processed.
 1. Click the hamburger menu in the `heartRateData` tab.
+1. Select `Chart Builder`
 1. Select defaults (`Line`, `X-Axis=Timestamp`, `Series=Heart Rate`)
-1. Press Create
+1. Press Create (You may need to scroll to see the button.)
 1. A chart should appear
    ![Heart rate chart started](heartRateChartStart.png "Heart rate chart started")
 1. The chart should also continue to tick, adding more data points to the graph over time and dynamically resizing.

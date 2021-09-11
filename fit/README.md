@@ -23,8 +23,9 @@ Pull your own data from your Strava account. Visualize your data, manipulate you
 1. The table `heartRateData` should appear
    ![Heart rate table](heartRateTable.png "Heart rate table")
 1. Click the hamburger menu in the `heartRateData` tab.
+1. Select `Chart Builder`
 1. Select defaults (`Line`, `X-Axis=Timestamp`, `Series=Heart Rate`)
-1. Press Create
+1. Press Create (You may need to scroll to see the button.)
 1. A chart should appear
    ![Heart rate chart](heartRateChart.png "Heart rate chart")
 
