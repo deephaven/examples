@@ -1,6 +1,6 @@
 # Ticking Heart Rate in Deephaven
 
-Self-contained example code and data to simulate a live feed of heartrate data being entered.
+Self-contained example code and data to simulate a live feed of heart rate data being entered.
 
 ## Table of contents
 
@@ -36,11 +36,11 @@ More background detail is supplied here: https://deephaven.io/core/docs/referenc
 
 ## Advanced challenge
 
-Provided there is a way to stream csv files into the docker container from the original source, it should be possible to watch heart rate monitor data in approx. real-time, depending on the speed of data transfer protocols.
+Provided there is a way to stream csv files into the docker container from the original source, it should be possible to watch heart rate monitor data in real-time (delays only depending on the speed of data transfer protocols).
 
 Since there is a diverse array of devices and communication strategies between those devices, there is no recommended setup here on how to achieve this goal.
 
-For this example, the following were used:
+For this exercise, the following were used:
 * a Scosche Rhythm24 heart rate monitor
 * android phone with USB tethering for file sharing (alternatively syncing software could be used)
 * Strava android app for a clear screen reading of per-second(approx.) heart rate readouts

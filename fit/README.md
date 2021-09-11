@@ -1,6 +1,6 @@
 # Fit file as available from Strava
 
-Pull your own data from your Strava account. Visualize your data, manipulate your data, combine your data with other sources,  all while maintaining full ownership and control of the data on your own machine environment.
+Pull your own data from your Strava account. Visualize your data, manipulate your data, combine your data with other sources,  all while maintaining full ownership and control of the data in your own environment.
 
 ## Table of contents
 
@@ -13,24 +13,20 @@ Pull your own data from your Strava account. Visualize your data, manipulate you
 1. Login to your Strava account
 1. Select an activity.
 1. At the bottom of the menu, select the `...` for more
-![Strava export menu](StravaExport.png "Strava export menu")
+   ![Strava export menu](StravaExport.png "Strava export menu")
 1. Select `Export Original`. Provided you have supplied the data in fit format, this should now give a downloaded file with extension `.fit`
 1. Put this `.fit` file in the data folder underneath your docker starting location:
    See: https://deephaven.io/core/docs/tutorials/launch-pre-built#set-up-your-deephaven-deployment
-   Add another directory level if desired to keep segmented.
-1. Ensure fitparse is setup
+   Add another directory level if desired to keep various projects segmented.
+1. Ensure fitparse is setup (see below)
 1. Run the file given in a deephaven console: `accessFit.py`
 1. The table `heartRateData` should appear
-
-<<insert screenshot here>>
-![Heart rate table](heartRateTable.png "Heart rate table")
-
+   ![Heart rate table](heartRateTable.png "Heart rate table")
 1. Click the hamburger menu in the `heartRateData` tab.
 1. Select defaults (`Line`, `X-Axis=Timestamp`, `Series=Heart Rate`)
 1. Press Create
 1. A chart should appear
-
-![Heart rate chart](heartRateChart.png "Heart rate chart")
+   ![Heart rate chart](heartRateChart.png "Heart rate chart")
 
 ## Using fitparse module
 To use fitparse, install via your python session temporarily using:
