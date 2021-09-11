@@ -16,6 +16,7 @@ The following folders can be found in this repository:
 - **[`pems`](https://pems.dot.ca.gov/)** - Traffic flow data collected near Davis, CA.
 - **[`taxi`](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)** - Yellow Taxi trip records
 - **[`fit`](https://www.strava.com/) - Workout results in the proprietary fit format developed by Garmin. Downloadable from e.g. Strava
+- **[`tickingHeartRate`](https://deephaven.io/core/docs/how-to-guides/dynamic-table-writer) - Simulated ticking heart rate data
 
 ## Description
 
