@@ -13,7 +13,7 @@ Self-contained example code and data to simulate a live feed of heartrate data b
 1. Copy the `csv` directory into the data folder underneath your docker starting location:
    See: https://deephaven.io/core/docs/tutorials/launch-pre-built#set-up-your-deephaven-deployment
 1. Run the file given in a deephaven console: `runTickingHeartRateReplay.py`
-1. The table `heartRateData` should appear
+1. The table `heartRateData` should appear (See `Note regarding Ticking`)
    ![Heart rate table starting](heartRateTableStart.png "Heart rate chart")   
 1. The table should continue to tick new rows as each `.csv` file is processed.
 1. Click the hamburger menu in the `heartRateData` tab.
@@ -25,7 +25,15 @@ Self-contained example code and data to simulate a live feed of heartrate data b
    ![Heart rate chart ticking](heartRateChartMiddle.png "Heart rate chart")
 1. The chart will stop ticking when either no more data is added, or the script exit criteria is reached.
    ![Heart rate chart complete](heartRateChartEnd.png "Heart rate chart complete")
-   
+
+## Note regarding ticking
+
+The ticking functionality requires threading to be in place as implemented in the code example.
+
+Without threading, ticking will not happen, and the entire table will be processed in a single batch at the end.
+
+More background detail is supplied here: https://deephaven.io/core/docs/reference/table-operations/create/DynamicTableWriter
+
 ## Advanced challenge
 
 Provided there is a way to stream csv files into the docker container from the original source, it should be possible to watch heart rate monitor data in approx. real-time, depending on the speed of data transfer protocols.
