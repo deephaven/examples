@@ -20,7 +20,7 @@ These steps can be run with our example data or your own.
 1. Put this `.fit` file in the data folder underneath your Docker starting location:
    See: https://deephaven.io/core/docs/tutorials/launch-pre-built#set-up-your-deephaven-deployment
    Add another directory level if desired to keep various projects segmented.
-1. Ensure fitparse is setup (see below)
+1. Ensure fitparse is setup (see below).
 1. Run the file given in a deephaven console: `accessFit.py`
 1. The table `heartRateData` should appear
    ![Heart rate table](heartRateTable.png "Heart rate table")
