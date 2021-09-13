@@ -44,7 +44,7 @@ Note: YMMV if using a fit file which reports different data types. It appears th
 
 ## Advanced challenge
 
-Some of the most interesting use cases for this data is to be able to correlate the data with other sources of interest to you.
+Some of the most interesting use cases for this data are to be able to correlate the data with other sources of interest to you.
 
 The first step is importing many fit files to compare:
 * todays heart rate with last months heart rate
