@@ -18,7 +18,7 @@ These steps can be run with our example data or your own.
    ![Strava export menu](StravaExport.png "Strava export menu")
 1. Select **Export Original**. Provided you have supplied the data in fit format, this should now give a downloaded file with extension `.fit`
 1. Put this `.fit` file in the data folder underneath your Docker starting location:
-   See: https://deephaven.io/core/docs/tutorials/launch-pre-built#set-up-your-deephaven-deployment
+   See our [Quickstart](https://deephaven.io/core/docs/tutorials/quickstart#set-up-your-deephaven-deployment) for further details.
    Add another directory level if desired to keep various projects segmented.
 1. Ensure fitparse is setup (see below).
 1. Run the given file in a Deephaven console: `accessFit.py`.
