@@ -16,7 +16,7 @@ These steps can be run with our example data or your own.
 1. Select an activity.
 1. At the bottom of the menu, select **...** for more.
    ![Strava export menu](StravaExport.png "Strava export menu")
-1. Select `Export Original`. Provided you have supplied the data in fit format, this should now give a downloaded file with extension `.fit`
+1. Select **Export Original**. Provided you have supplied the data in fit format, this should now give a downloaded file with extension `.fit`
 1. Put this `.fit` file in the data folder underneath your docker starting location:
    See: https://deephaven.io/core/docs/tutorials/launch-pre-built#set-up-your-deephaven-deployment
    Add another directory level if desired to keep various projects segmented.
