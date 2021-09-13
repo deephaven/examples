@@ -32,7 +32,7 @@ These steps can be run with our example data or your own.
    ![Heart rate chart](heartRateChart.png "Heart rate chart")
 
 ## Using fitparse module
-To use fitparse, install via your python session temporarily using:
+To use fitparse, install via your current Python session:
 ```python
 import os
 os.system("pip install fitparse")
