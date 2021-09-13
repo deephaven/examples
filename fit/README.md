@@ -12,7 +12,7 @@ Pull your own data from your Strava account. Visualize, manipulate, and combine 
 
 These steps can be run with our example data or your own.
 
-1. Login to your Strava account
+1. Login to your Strava account.
 1. Select an activity.
 1. At the bottom of the menu, select the `...` for more
    ![Strava export menu](StravaExport.png "Strava export menu")
