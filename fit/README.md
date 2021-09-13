@@ -47,6 +47,7 @@ Note: YMMV if using a fit file which reports different data types. It appears th
 Some of the most interesting use cases for this data are to be able to correlate the data with other sources of interest to you.
 
 The first step is importing many fit files to compare:
+
 * Today's heart rate with last month's heart rate.
 * average heart rate last week/month
 * heart rate at different points during the day (morning, lunch, bedtime)
