@@ -21,7 +21,7 @@ These steps can be run with our example data or your own.
    See: https://deephaven.io/core/docs/tutorials/launch-pre-built#set-up-your-deephaven-deployment
    Add another directory level if desired to keep various projects segmented.
 1. Ensure fitparse is setup (see below).
-1. Run the file given in a deephaven console: `accessFit.py`
+1. Run the given file in a Deephaven console: `accessFit.py`.
 1. The table `heartRateData` should appear
    ![Heart rate table](heartRateTable.png "Heart rate table")
 1. Click the hamburger menu in the `heartRateData` tab.
