@@ -22,7 +22,7 @@ These steps can be run with our example data or your own.
    Add another directory level if desired to keep various projects segmented.
 1. Ensure fitparse is setup (see below).
 1. Run the given file in a Deephaven console: `accessFit.py`.
-1. The table `heartRateData` should appear
+1. The `heartRateData` table should appear.
    ![Heart rate table](heartRateTable.png "Heart rate table")
 1. Click the hamburger menu in the `heartRateData` tab.
 1. Select `Chart Builder`
