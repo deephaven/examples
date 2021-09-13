@@ -14,7 +14,7 @@ These steps can be run with our example data or your own.
 
 1. Login to your Strava account.
 1. Select an activity.
-1. At the bottom of the menu, select the `...` for more
+1. At the bottom of the menu, select **...** for more.
    ![Strava export menu](StravaExport.png "Strava export menu")
 1. Select `Export Original`. Provided you have supplied the data in fit format, this should now give a downloaded file with extension `.fit`
 1. Put this `.fit` file in the data folder underneath your docker starting location:
