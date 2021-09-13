@@ -1,6 +1,6 @@
 # Fit file as available from Strava
 
-Pull your own data from your Strava account. Visualize your data, manipulate your data, combine your data with other sources,  all while maintaining full ownership and control of the data in your own environment.
+Pull your own data from your Strava account. Visualize, manipulate, and combine your data with other sources, all while maintaining full ownership and control of the data in your own environment.
 
 ## Table of contents
 
