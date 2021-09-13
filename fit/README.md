@@ -4,7 +4,7 @@ Pull your own data from your Strava account. Visualize, manipulate, and combine 
 
 ## Table of contents
 
- * `ThursMorn.fit` - the data used to run this example
+ * `ThursMorn.fit` - The data used to run this example.
  * `accessFit.py` - python script to demonstrate fit data inside deephaven 
  * `*.png` - images used in this help
 
