@@ -28,7 +28,7 @@ These steps can be run with our example data or your own.
 1. Select `Chart Builder`
 1. Select defaults (`Line`, `X-Axis=Timestamp`, `Series=Heart Rate`)
 1. Press Create (You may need to scroll to see the button.)
-1. A chart should appear
+1. A chart should appear:
    ![Heart rate chart](heartRateChart.png "Heart rate chart")
 
 ## Using fitparse module
