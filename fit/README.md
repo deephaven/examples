@@ -37,7 +37,7 @@ To use fitparse, install via your python session temporarily using:
 import os
 os.system("pip install fitparse")
 ```
-For more details on making the install persist between sessions, see:
+For more details on making the install persist between sessions, see [How to install Python packages](https://github.com/deephaven/deephaven.io/blob/main/core/docs/how-to-guides/install-python-packages.md).
 https://github.com/deephaven/deephaven.io/blob/main/core/docs/how-to-guides/install-python-packages.md
 
 Note: YMMV if using a fit file which reports different data types. It appears that different sensors can report different data. In the example here, both GPS and heart rate monitor data is intertwined.
