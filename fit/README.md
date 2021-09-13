@@ -8,7 +8,9 @@ Pull your own data from your Strava account. Visualize, manipulate, and combine 
  * `accessFit.py` - Python script to demonstrate fit data inside Deephaven. 
  * `*.png` - images used in this help
 
-## Steps to run: example or your own data
+## Steps to run
+
+These steps can be run with our example data or your own.
 
 1. Login to your Strava account
 1. Select an activity.
