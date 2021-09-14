@@ -28,7 +28,7 @@ The result table includes the following columns:
 - **`Coin`:** The name of the coin.
 - **`Price`:** Refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
 - **`MarketCap`:** One of the metrics used to measure the relative size of a coin. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
-- **`total_volume`:** The total trading volume of a coin across all active coin exchanges tracked by CoinGecko.
+- **`TotalVolume`:** The total trading volume of a coin across all active coin exchanges tracked by CoinGecko.
 
 
 # Source and License
