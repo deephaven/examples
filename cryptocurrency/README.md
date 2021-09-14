@@ -4,11 +4,11 @@ The script will pull live and historical data for specified cryptocurencies from
 
 ## Variables
 - **`timeToWatch`:** Integer number of minutes to run the script.
-- **`secondsToSleep`:** Integer number of seconds between data pulls.  It is recommended that this number is 10 or higher. Note that too frequent requests will generate an HTTP status: '429 Too Many Requests'. 
+- **`secondsToSleep`:** Integer number of seconds between data pulls.  It is recommended that this number is 10 or higher. Note that too frequent requests will generate an HTTP status: '429 Too Many Requests'.
 - **`getHistory`:** Boolean value.
    -  `false` for only live data.
    -  `true` for live and historical data.
-- **`daysHistory`:** Integer number of days to collect history. Data has automatic granularity. 
+- **`daysHistory`:** Integer number of days to collect history. Data has automatic granularity.
    - Minutely data will be used for a duration within 1 day.
    - Hourly data will be used for a duration between 1 day and 90 days.
    - Daily data will be used for a duration above 90 days.
@@ -19,16 +19,16 @@ The script will pull live and historical data for specified cryptocurencies from
 
 Upon running the script in your Deephaven IDE, the `result` table will be created.  
 
-This table can be sorted on the `DateTime` column to see new data streaming in.
+This table can be sorted on the `Timestamp` column to see new data streaming in.
 
 ![img](./crypto1.png)
 
 The result table includes the following columns:
 
-- **`DateTime`:** The date and time that the coin value was updated.  Changes are queried every `secondsToSleep`.  Only new data will be added to the table.  If the coin value did not change, then no new data will populate. 
-- **`Coin`:** The name of the coin. 
-- **`price`:** Refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
-- **`market_cap`:** One of the metrics used to measure the relative size of a coin. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
+- **`Timestamp`:** The date and time that the coin value was updated.
+- **`Coin`:** The name of the coin.
+- **`Price`:** Refers to the current global volume-weighted average price of a coin traded on an active cryptoasset exchange as tracked by CoinGecko.
+- **`MarketCap`:** One of the metrics used to measure the relative size of a coin. Market Capitalization is calculated by multiplying Coin Price with Available Supply.
 - **`total_volume`:** The total trading volume of a coin across all active coin exchanges tracked by CoinGecko.
 
 

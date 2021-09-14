@@ -1,5 +1,5 @@
 import os
-os.system("pip install pycoingecko") 
+os.system("pip install pycoingecko")
 
 from pycoingecko import CoinGeckoAPI
 
@@ -15,16 +15,16 @@ import threading
 
 
 # minutes to query crypto prices
-timeToWatch = 2 
+timeToWatch = 2
 
 # secondsToSleep should be 10 or higher. If too fast, will hit request limit.
-secondsToSleep = 10 
+secondsToSleep = 10
 
 
 getHistory = False
 
 # if getHistory = true, the days to pull
-daysHistory = 90 
+daysHistory = 90
 
 # coins to get data
 ids=['bitcoin', 'ethereum','litecoin', 'dogecoin', 'tether', 'binancecoin', 'cardano', 'ripple', 'polkadot']
@@ -32,7 +32,7 @@ ids=['bitcoin', 'ethereum','litecoin', 'dogecoin', 'tether', 'binancecoin', 'car
 # array to store tables for current and previous data
 tableArray=[]
 
-tableWriter = DynamicTableWriter(["coin", "dateTime", "price", "marketCap", "totalVolume"], [dht.string, dht.datetime, dht.double, dht.double, dht.double])
+tableWriter = DynamicTableWriter(["Coin", "Timestamp", "Price", "MarketCap", "TotalVolume"], [dht.string, dht.datetime, dht.double, dht.double, dht.double])
 
 
 tableArray.append(tableWriter.getTable())
@@ -44,10 +44,10 @@ if getHistory:
     for names in ids:
         coin_data_hist = cg.get_coin_market_chart_by_id(names, vs_currency = "usd", days = daysHistory)
         sub = pd.DataFrame(coin_data_hist)
-        tableArray.append(dataFrameToTable(sub).view("dateTime = millisToTime((long)prices_[i][0])", "coin = names", "price = prices_[i][1]", "marketCap = market_caps_[i][1]", "totalVolume = total_volumes_[i][1]").moveUpColumns("dateTime", "coin"))
+        tableArray.append(dataFrameToTable(sub).view("Timestamp = millisToTime((long)prices_[i][0])", "Coin = names", "Price = prices_[i][1]", "MarketCap = market_caps_[i][1]", "TotalVolume = total_volumes_[i][1]").moveUpColumns("Timestamp", "Coin"))
 
 #add each coin data to the master table
-result = merge(tableArray).selectDistinct("dateTime", "coin", "price", "marketCap", "totalVolume").sortDescending("dateTime") 
+result = merge(tableArray).selectDistinct("Timestamp", "Coin", "Price", "MarketCap", "TotalVolume").sortDescending("Timestamp", "Coin")
 
 def thread_func():
 
