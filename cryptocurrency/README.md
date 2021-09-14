@@ -9,10 +9,10 @@ The script will pull live and historical data for specified cryptocurencies from
    -  `false` for only live data.
    -  `true` for live and historical data.
 - **`daysHistory`:** Integer number of days to collect history. Data has automatic granularity. 
-   - Minutely data will be used for a duration within 1 day.
-   - Hourly data will be used for a duration between 1 day and 90 days.
-   - Daily data will be used for a duration above 90 days.
-- **`ids`:** Array of coins used to pull information. For a full and current list of values, execute the following: `curl -X GET "https://api.coingecko.com/api/v3/coins/list" -H "accept: application/json"`
+   - Minutely data will be returned for a duration within 1 day.
+   - Hourly data will be returned for a duration between 1 day and 90 days.
+   - Daily data will be returned for a duration above 90 days.
+- **`ids`:** Array of coins to pull information on. For a full and current list of values, execute the following: `curl -X GET "https://api.coingecko.com/api/v3/coins/list" -H "accept: application/json"`
 
 
 # Outcome
