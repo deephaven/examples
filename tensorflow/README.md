@@ -1,6 +1,6 @@
-# Tensorflow example demonstrating data from 
+# Tensorflow example demonstrating data from Seeking Alpha
 
-Pull your own data from your Strava account. Visualize, manipulate, and combine your data with other sources, all while maintaining full ownership and control of the data in your own environment.
+Pull a RSS feed from Seeking Alpha, and statistically calculate positive/negative sentiment using machine-learning training mechanisms.
 
 ## Table of contents
 * `tensorflow.py` - python script to run
