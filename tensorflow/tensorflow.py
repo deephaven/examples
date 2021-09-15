@@ -12,7 +12,12 @@ import re
 import spacy
 import deephaven.npy as inp
 from deephaven.java_to_python import columnToNumpyArray
+from deephaven import DynamicTableWriter, Types as dht
+from deephaven.TableTools import timeTable
 
+# Load training data to use:
+if not "trainData" in globals():
+    print("Data not available: please load trainData.csv")
 
 def cleanText(text):
     #to lowercase
@@ -286,6 +291,7 @@ def runRSS():
             quarters.append(quarter)
         except:
             # either bad article or access denied
+            print("Warning: article skipped due to bad formatting or access denied.")
             pass
 
     if len(texts) == 0:
@@ -310,9 +316,7 @@ def runRSS():
 
 
 
-DynamicTableWriter = jpy.get_type("com.illumon.iris.db.v2.utils.DynamicTableWriter")
-trainData = db.t("Noor", "trainingData") \
-    .moveUpColumns("Sym", "Quarter", "Label")
+#DynamicTableWriter = jpy.get_type("com.illumon.iris.db.v2.utils.DynamicTableWriter")
 trainData = shuffleTable(trainData)
 trainText = columnToNumpyArray(trainData, "Text")
 trainLabels = inp.numpy_slice(trainData.view("Label"), 0, trainData.size(), dtype=np.int32)
@@ -321,18 +325,20 @@ vectorizer = TfidfVectorizer(max_features=1000, ngram_range = (1,1), norm='l1')
 trainTextVectorized = vectorizer.fit_transform(trainText)
 
 
-cols = convertToJavaArray(["Text", "RSSTimestamp", "Sym", "Quarter"])
-types = jpy.array("java.lang.Class", 4)
-String = jpy.get_type("java.lang.String")
-for i in range(len(types)):
-    types[i] = String
+#cols = convertToJavaArray(["Text", "RSSTimestamp", "Sym", "Quarter"])
+#types = jpy.array("java.lang.Class", 4)
+#String = jpy.get_type("java.lang.String")
+#for i in range(len(types)):
+#    types[i] = String
+cols = ["Text", "RSSTimestamp", "Sym", "Quarter"]
+types = [dht.string, dht.string, dht.string, dht.string,]
 tw = DynamicTableWriter(cols, types)
 calls = tw.getTable() \
     .firstBy("Sym", "Quarter") \
     .update("Text = (String)cleanText.call(Text)", "PredictedLabel = (int)predict.call(Text, `c`)", "PredictedLabel = PredictedLabel==0 ? -1 : PredictedLabel") \
     .moveUpColumns("Sym", "Quarter", "RSSTimestamp", "PredictedLabel")
-tt = db.timeTable("'00:01:00'") \
+tt = timeTable("'00:01:00'") \
     .sortDescending("Timestamp") \
     .update("ContainedNewCalls=(boolean)runRSS.call()")
-callsPre = calls.view("Sym", "Date=convertDate(RSSTimestamp.substring(0,10))", "PredictedLabel") \
-    .preemptiveUpdatesTable(2*60*1000)
+#callsPre = calls.view("Sym", "Date=convertDate(RSSTimestamp.substring(0,10))", "PredictedLabel")#\
+#    .preemptiveUpdatesTable(2*60*1000)
