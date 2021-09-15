@@ -11,7 +11,7 @@ TODO: remove/fix this entire section - the example is not usable while these pro
 1. Without a login to Seeking Alpha, the data will not populate (I believe). That, or the article formatting is potentially fragile.
    * Due to this, I have not been able to run with actual data, to see if/where/how to tie together DynamicTableWriter with the trained system
 1. Some fragility in the lxml install within docker/deephaven (See setup) Resolution: https://github.com/deephaven/deephaven.io/pull/608
-1. Preemptive updates is not implemented/supported in core. If this is an essential piece of functionality, still need an alternative.
+1. Preemptive updates does not appear to be implemented/supported in core. If this is an essential piece of functionality, still need an alternative.
 
 ## Steps to run
 1. Install python modules
