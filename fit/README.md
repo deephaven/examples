@@ -33,6 +33,10 @@ These steps can be run with our example data or your own.
 
 ## Using fitparse module
 To use fitparse, install via your current Python session:
+```python
+import os
+os.system("pip install fitparse")
+```
 
 For more details on making the install persist between sessions, see [How to install Python packages](https://github.com/deephaven/deephaven.io/blob/main/core/docs/how-to-guides/install-python-packages.md).
 https://github.com/deephaven/deephaven.io/blob/main/core/docs/how-to-guides/install-python-packages.md
