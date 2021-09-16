@@ -1,5 +1,8 @@
 from deephaven import DynamicTableWriter, Types as dht
 from deephaven.DBTimeUtils import convertDateTime
+# Ensure fitparse is installed.
+import os
+os.system("pip install fitparse")
 from fitparse import FitFile
 
 # Change to the name of the downloaded file (including any intermediate directory added to docker)
