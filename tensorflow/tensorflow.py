@@ -19,6 +19,10 @@ from deephaven.TableTools import timeTable
 if not "trainData" in globals():
     print("Data not available: please load trainData.csv")
 
+# Ensure credientials are setup to log in to seekingAlpha
+if not "ra-sa-key" in globals():
+    print("Please set Rapid Api key for Seeking Alpha (ra-sa-key='the-key'):")
+
 def cleanText(text):
     #to lowercase
     text = text.lower()
@@ -262,6 +266,10 @@ def runRSS():
     symbols = []
     quarters = []
     for link in links:
+        print()
+        print(link)
+        linkId=link[link.index('/article/') + len('/article/'): link.index('-')]
+
         #get the transcript article
         source = requests.get(link).text
         soup = BeautifulSoup(source, "lxml")
@@ -340,5 +348,4 @@ calls = tw.getTable() \
 tt = timeTable("'00:01:00'") \
     .sortDescending("Timestamp") \
     .update("ContainedNewCalls=(boolean)runRSS.call()")
-#callsPre = calls.view("Sym", "Date=convertDate(RSSTimestamp.substring(0,10))", "PredictedLabel")#\
-#    .preemptiveUpdatesTable(2*60*1000)
+#callsSummary = calls.view("Sym", "Date=convertDate(RSSTimestamp.substring(0,10))", "PredictedLabel")
