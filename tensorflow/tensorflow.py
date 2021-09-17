@@ -281,9 +281,17 @@ def runRSS():
     for link in links[:1]:
         linkId=link[link.index('/article/') + len('/article/'): link.index('-')]
 
+        # Note: every tick, the API request will be re-sent, either consuming quota
+        # fast, or racking up bills fast. Skipping already seen links minimizes API
+        # usage to only new articles.
+        if linkId in knownLinks:
+            #print("Skipping lookup - already included: " + link)
+            continue
+        else:
+            knownLinks.append(linkId)
+
         #get the transcript article
-        #source= json.loads(getArticle(linkId).text)
-        source= json.loads(response.text)
+        source= json.loads(getArticle(linkId).text)
 
         try:
             #find the header, timestamp, and paragraphs of the article
@@ -341,8 +349,9 @@ trainLabels = np.reshape(trainLabels, -1)
 vectorizer = TfidfVectorizer(max_features=1000, ngram_range = (1,1), norm='l1')
 trainTextVectorized = vectorizer.fit_transform(trainText)
 
+knownLinks = []
 cols = ["Text", "RSSTimestamp", "Sym", "Quarter"]
-types = [dht.string, dht.string, dht.string, dht.string,]
+types = [dht.string, dht.string, dht.string, dht.string]
 tw = DynamicTableWriter(cols, types)
 twt = tw.getTable()
 calls = twt \
@@ -350,7 +359,7 @@ calls = twt \
     .update("Text = (String)cleanText.call(Text)", "PredictedLabel = (int)predict.call(Text, `c`)", "PredictedLabel = PredictedLabel==0 ? -1 : PredictedLabel") \
     .moveUpColumns("Sym", "Quarter", "RSSTimestamp", "PredictedLabel")
 
-tt = timeTable("'00:10:00'") \
+tt = timeTable("'00:01:00'") \
     .sortDescending("Timestamp") \
     .update("ContainedNewCalls=(boolean)runRSS.call()")
 callsSummary = calls.view("Sym", "Date=convertDate(RSSTimestamp.substring(0,10))", "PredictedLabel")
