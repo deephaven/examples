@@ -24,18 +24,19 @@ if not "trainData" in globals():
 if not "ra_sa_key" in globals():
     print("Please set Rapid Api key for Seeking Alpha (ra_sa_key='the-key'):")
 
+
 def cleanText(text):
-    #to lowercase
+    # to lowercase
     text = text.lower()
-    #correct spaces (e.g. "End sentence.Begin another" becomes "End sentence. Begin another")
+    # correct spaces (e.g. "End sentence.Begin another" becomes "End sentence. Begin another")
     text = re.sub(r'\.([a-zA-Z])', r'. \1', text)
     text = re.sub(r'\?([a-zA-Z])', r'. \1', text)
     text = re.sub(r'\!([a-zA-Z])', r'. \1', text)
-    #replace q1,2,3,4 with q
+    # replace q1,2,3,4 with q
     text = re.sub("q[1-4]", "q", text)
-    #replace 20xx with 2000
+    # replace 20xx with 2000
     text = re.sub("20[0-2][0-9]", "2000", text)
-    #lemmatize and remove stop words and punctuation
+    # lemmatize and remove stop words and punctuation
     nlp = spacy.load('en_core_web_sm')
     doc = nlp(text)
     lemmatizedText = ""
@@ -66,12 +67,12 @@ def naiveBayes(trainTextVectorized, trainLabels, testTextVectorized):
 
 
 def preTrainedEmbedding(trainText, trainLabels, evalText, valSize, trainEmb=True):
-    #initialize training, validation, and testing data
-    valText = trainText[-1*valSize:]
-    valLabels = trainLabels[-1*valSize:]
-    trainText = trainText[:-1*valSize]
-    trainLabels = trainLabels[:-1*valSize]
-    #create and run model
+    # initialize training, validation, and testing data
+    valText = trainText[-1 * valSize:]
+    valLabels = trainLabels[-1 * valSize:]
+    trainText = trainText[:-1 * valSize]
+    trainLabels = trainLabels[:-1 * valSize]
+    # create and run model
     hub_layer = hub.KerasLayer("https://tfhub.dev/google/tf2-preview/gnews-swivel-20dim-with-oov/1", output_shape=[20],
                                input_shape=[], dtype=tf.string, trainable=trainEmb)
     model = keras.Sequential(name="mymodel")
@@ -101,9 +102,6 @@ def predict(text, model):
         return int(preTrainedEmbedding(trainText, trainLabels, text, 10))
 
 
-
-
-
 from bs4 import BeautifulSoup
 import requests
 import re
@@ -113,23 +111,23 @@ from deephaven.TableTools import emptyTable
 from deephaven.conversion_utils import convertToJavaArray
 
 
-#gets only those xml items which represent earnings call transcripts
+# gets only those xml items which represent earnings call transcripts
 def getEarningsCalls(items):
     return [item for item in items if item.title.text.split()[-3:] == ["Earnings", "Call", "Transcript"]]
 
 
-#gets the symbol and quarter/year out of an article's header
+# gets the symbol and quarter/year out of an article's header
 def parseHeader(header):
     leftParenIdx = header.rindex("(")
     rightParenIdx = header.rindex(")")
-    symbol = header[leftParenIdx+1:rightParenIdx]
+    symbol = header[leftParenIdx + 1:rightParenIdx]
     quarterIdx = re.search("Q[1-4] 20[0-2][0-9]", header).start()
-    quarter = header[quarterIdx:quarterIdx+7]
+    quarter = header[quarterIdx:quarterIdx + 7]
     return (symbol, quarter)
 
 
-#find the index of the first paragraph that is equal to an item from the search list
-#necessary for some functions below
+# find the index of the first paragraph that is equal to an item from the search list
+# necessary for some functions below
 def findIdx(paragraphs, searchList):
     idx = 0
     for paragraph in paragraphs:
@@ -140,16 +138,16 @@ def findIdx(paragraphs, searchList):
     return idx
 
 
-#gets the names of all the company participants on the call
-#this is useful in other functions below
+# gets the names of all the company participants on the call
+# this is useful in other functions below
 def getNames(paragraphs):
-    #find the indices of the company participants and conference call participants roll-call sections
+    # find the indices of the company participants and conference call participants roll-call sections
     companyList = ["company participants", "corporate participants", "executives", "company representatives"]
     confList = ["conference call participants", "analysts"]
     startIdx = findIdx(paragraphs, companyList)
     endIdx = findIdx(paragraphs, confList)
 
-    #record the name of each company participant
+    # record the name of each company participant
     idx = startIdx + 1
     names = []
     while idx < endIdx:
@@ -162,9 +160,9 @@ def getNames(paragraphs):
     return names
 
 
-#removes the roll-call, operator announcement, and q&a sections of the call
+# removes the roll-call, operator announcement, and q&a sections of the call
 def truncate(paragraphs, names):
-    #find the indices of the operator and q&a sections
+    # find the indices of the operator and q&a sections
     operatorIdx = qaIdx = 0
     for paragraph in paragraphs:
         if paragraph.text.lower()[:len("operator")] == "operator":
@@ -175,18 +173,18 @@ def truncate(paragraphs, names):
             break
         qaIdx += 1
 
-    #if there is an operator section, get the section between it and the q&a
+    # if there is an operator section, get the section between it and the q&a
     if operatorIdx < qaIdx:
-        paragraphs = paragraphs[operatorIdx+1:qaIdx-1]
-    #if there isn't an operator section, remove the company participant roll-call
-    #this is necessary for the next step
+        paragraphs = paragraphs[operatorIdx + 1:qaIdx - 1]
+    # if there isn't an operator section, remove the company participant roll-call
+    # this is necessary for the next step
     else:
         confList = ["conference call participants", "analysts"]
         confIdx = findIdx(paragraphs, confList)
-        paragraphs = paragraphs[confIdx:qaIdx-1]
+        paragraphs = paragraphs[confIdx:qaIdx - 1]
 
-    #find the index of the first company participant's speaking section
-    #this represents the start of either the safe-harbor statement or the CEO presentation
+    # find the index of the first company participant's speaking section
+    # this represents the start of either the safe-harbor statement or the CEO presentation
     nameIdx = 0
     for paragraph in paragraphs:
         text = paragraph.text.split()
@@ -197,12 +195,12 @@ def truncate(paragraphs, names):
             break
         nameIdx += 1
 
-    #remove everything before the first company participant's speaking section
+    # remove everything before the first company participant's speaking section
     # print("op:%d\nqa:%d\nname:%d" % (operatorIdx, qaIdx, nameIdx))
     return paragraphs[nameIdx:]
 
 
-#check if the call has a safe-harbor section
+# check if the call has a safe-harbor section
 def hasSafeHarborStatement(paragraphs):
     phrases = ["10-K", "forward-looking statements", "forward-looking information", "non-GAAP"]
     for paragraph in paragraphs:
@@ -212,10 +210,10 @@ def hasSafeHarborStatement(paragraphs):
     return False
 
 
-#remove the call's safe-harbor section with the assumption that it exists
+# remove the call's safe-harbor section with the assumption that it exists
 def removeSafeHarborStatement(paragraphs, names):
-    #find the indices of the first two company participant speaking sections
-    #the first company speaker always says the safe-harbor statement, so his/her section must be removed
+    # find the indices of the first two company participant speaking sections
+    # the first company speaker always says the safe-harbor statement, so his/her section must be removed
     i = startIdx = endIdx = 0
     first = True
     for paragraph in paragraphs:
@@ -226,35 +224,36 @@ def removeSafeHarborStatement(paragraphs, names):
         name = text[0] + " " + text[1]
         if name in names:
             if first:
-                #this is the first speaker's index
+                # this is the first speaker's index
                 startIdx = i
                 first = False
             else:
-                #this is the second speaker's index
+                # this is the second speaker's index
                 endIdx = i
                 break
         i += 1
 
-    #remove the section between the two indices, i.e. the first speaker's section
-    return paragraphs[:startIdx] + paragraphs[endIdx+1:]
+    # remove the section between the two indices, i.e. the first speaker's section
+    return paragraphs[:startIdx] + paragraphs[endIdx + 1:]
 
 
-#removes all company participant names/paragraphs, as each name has its own paragraph in the call
+# removes all company participant names/paragraphs, as each name has its own paragraph in the call
 def removeNames(paragraphs, names):
     return [paragraph for paragraph in paragraphs if not paragraph.text in names]
 
 
-#convert a list of paragraphs into a single text string
+# convert a list of paragraphs into a single text string
 def collate(paragraphs):
     s = ""
     for paragraph in paragraphs:
         s += paragraph.text
     return s
 
+
 def getArticle(articleId):
     url = "https://seeking-alpha.p.rapidapi.com/articles/get-details"
 
-    querystring = {"id":articleId}
+    querystring = {"id": articleId}
 
     headers = {
         'x-rapidapi-host': "seeking-alpha.p.rapidapi.com",
@@ -264,46 +263,46 @@ def getArticle(articleId):
     response = requests.request("GET", url, headers=headers, params=querystring)
     return response
 
-def runRSS():
 
-    #get the rss feed
+def runRSS():
+    # get the rss feed
     feed = requests.get("https://seekingalpha.com/sector/transcripts.xml").text
     soup = BeautifulSoup(feed, "xml")
     items = soup.find_all("item")
     items = getEarningsCalls(items)
     links = [item.link.text for item in items]
 
-    #these store the data for articles where access is granted
+    # these store the data for articles where access is granted
     texts = []
     timestamps = []
     symbols = []
     quarters = []
     for link in links[:1]:
-        linkId=link[link.index('/article/') + len('/article/'): link.index('-')]
+        linkId = link[link.index('/article/') + len('/article/'): link.index('-')]
 
         # Note: every tick, the API request will be re-sent, either consuming quota
         # fast, or racking up bills fast. Skipping already seen links minimizes API
         # usage to only new articles.
         if linkId in knownLinks:
-            #print("Skipping lookup - already included: " + link)
+            # print("Skipping lookup - already included: " + link)
             continue
         else:
             knownLinks.append(linkId)
 
-        #get the transcript article
-        source= json.loads(getArticle(linkId).text)
+        # get the transcript article
+        source = json.loads(getArticle(linkId).text)
 
         try:
-            #find the header, timestamp, and paragraphs of the article
-            article=source["data"]["attributes"]["content"]
-            header=source["data"]["attributes"]["title"]
-            timestamp=source["data"]["attributes"]["publishOn"]
-            paragraphs=BeautifulSoup(article, "lxml").find_all("p")
+            # find the header, timestamp, and paragraphs of the article
+            article = source["data"]["attributes"]["content"]
+            header = source["data"]["attributes"]["title"]
+            timestamp = source["data"]["attributes"]["publishOn"]
+            paragraphs = BeautifulSoup(article, "lxml").find_all("p")
 
-            #get symbol and quarter from the header
+            # get symbol and quarter from the header
             symbol, quarter = parseHeader(header)
 
-            #clean and collate the paragraphs
+            # clean and collate the paragraphs
             names = getNames(paragraphs)
             paragraphs = truncate(paragraphs, names)
             if hasSafeHarborStatement(paragraphs):
@@ -311,7 +310,7 @@ def runRSS():
             paragraphs = removeNames(paragraphs, names)
             text = collate(paragraphs)
 
-            #store collected data
+            # store collected data
             texts.append(text)
             timestamps.append(timestamp)
             symbols.append(symbol)
@@ -325,11 +324,11 @@ def runRSS():
         return False
 
     # Known bug: https://github.com/deephaven/deephaven-core/issues/1309
-    try :
+    try:
         symCol = columnToNumpyArray(calls, "Sym")
     except:
         symCol = []
-    try :
+    try:
         quarterCol = columnToNumpyArray(calls, "Quarter")
     except:
         quarterCol = []
@@ -341,12 +340,11 @@ def runRSS():
     return containsNewCall
 
 
-
 trainData = shuffleTable(trainData)
 trainText = columnToNumpyArray(trainData, "Text")
 trainLabels = inp.numpy_slice(trainData.view("Label"), 0, trainData.size(), dtype=np.int32)
 trainLabels = np.reshape(trainLabels, -1)
-vectorizer = TfidfVectorizer(max_features=1000, ngram_range = (1,1), norm='l1')
+vectorizer = TfidfVectorizer(max_features=1000, ngram_range=(1, 1), norm='l1')
 trainTextVectorized = vectorizer.fit_transform(trainText)
 
 knownLinks = []
