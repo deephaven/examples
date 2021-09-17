@@ -10,6 +10,7 @@ from sklearn.naive_bayes import BernoulliNB, MultinomialNB
 import string
 import re
 import spacy
+import json
 import deephaven.npy as inp
 from deephaven.java_to_python import columnToNumpyArray
 from deephaven import DynamicTableWriter, Types as dht
@@ -133,7 +134,7 @@ def findIdx(paragraphs, searchList):
     idx = 0
     for paragraph in paragraphs:
         for title in searchList:
-            if paragraph.text.lower()[:len(title)] == title:
+            if (title == paragraph.text.lower()):
                 return idx
         idx += 1
     return idx
@@ -265,22 +266,18 @@ def runRSS():
     timestamps = []
     symbols = []
     quarters = []
-    for link in links:
-        print()
-        print(link)
+    for link in links[:1]:
         linkId=link[link.index('/article/') + len('/article/'): link.index('-')]
-        print(linkId)
 
         #get the transcript article
-        source = requests.get(link).text
-        soup = BeautifulSoup(source, "lxml")
+        source= json.loads(response.text)
 
         try:
             #find the header, timestamp, and paragraphs of the article
-            article = soup.find("article")
-            header = article.header.find("div", id="a-hd").h1.text
-            timestamp = article.header.find("div", id="a-hd").find("div", class_="a-info clearfix").time["content"]
-            paragraphs = article.find("div", id="a-cont").find("div", id="a-body").find_all("p")
+            article=source["data"]["attributes"]["content"]
+            header=source["data"]["attributes"]["title"]
+            timestamp=source["data"]["attributes"]["publishOn"]
+            paragraphs=BeautifulSoup(article, "lxml").find_all("p")
 
             #get symbol and quarter from the header
             symbol, quarter = parseHeader(header)
@@ -305,27 +302,25 @@ def runRSS():
 
     if len(texts) == 0:
         return False
-    texts = convertToJavaArray(texts)
-    timestamps = convertToJavaArray(timestamps)
-    symbols = convertToJavaArray(symbols)
-    quarters = convertToJavaArray(quarters)
-    values = jpy.array("java.lang.String", 4)
-    symCol = columnToNumpyArray(calls, "Sym")
-    quarterCol = columnToNumpyArray(calls, "Quarter")
+
+    # Known bug: https://github.com/deephaven/deephaven-core/issues/1309
+    try :
+        symCol = columnToNumpyArray(calls, "Sym")
+    except:
+        symCol = []
+    try :
+        quarterCol = columnToNumpyArray(calls, "Quarter")
+    except:
+        quarterCol = []
     containsNewCall = False
     for i in range(len(texts)):
         if symbols[i] not in symCol and quarters[i] not in quarterCol:
             containsNewCall = True
-        values[0] = texts[i]
-        values[1] = timestamps[i]
-        values[2] = symbols[i]
-        values[3] = quarters[i]
-        tw.logRow(values)
+        tw.logRow(texts[i], timestamps[i], symbols[i], quarters[i])
     return containsNewCall
 
 
 
-#DynamicTableWriter = jpy.get_type("com.illumon.iris.db.v2.utils.DynamicTableWriter")
 trainData = shuffleTable(trainData)
 trainText = columnToNumpyArray(trainData, "Text")
 trainLabels = inp.numpy_slice(trainData.view("Label"), 0, trainData.size(), dtype=np.int32)
@@ -333,20 +328,17 @@ trainLabels = np.reshape(trainLabels, -1)
 vectorizer = TfidfVectorizer(max_features=1000, ngram_range = (1,1), norm='l1')
 trainTextVectorized = vectorizer.fit_transform(trainText)
 
-
-#cols = convertToJavaArray(["Text", "RSSTimestamp", "Sym", "Quarter"])
-#types = jpy.array("java.lang.Class", 4)
-#String = jpy.get_type("java.lang.String")
-#for i in range(len(types)):
-#    types[i] = String
 cols = ["Text", "RSSTimestamp", "Sym", "Quarter"]
 types = [dht.string, dht.string, dht.string, dht.string,]
 tw = DynamicTableWriter(cols, types)
-calls = tw.getTable() \
+twt = tw.getTable()
+calls = twt \
     .firstBy("Sym", "Quarter") \
     .update("Text = (String)cleanText.call(Text)", "PredictedLabel = (int)predict.call(Text, `c`)", "PredictedLabel = PredictedLabel==0 ? -1 : PredictedLabel") \
     .moveUpColumns("Sym", "Quarter", "RSSTimestamp", "PredictedLabel")
-tt = timeTable("'00:01:00'") \
+
+#tt = timeTable("'00:10:00'") \
+#tt = timeTable("'08:00:00'") \
     .sortDescending("Timestamp") \
     .update("ContainedNewCalls=(boolean)runRSS.call()")
-#callsSummary = calls.view("Sym", "Date=convertDate(RSSTimestamp.substring(0,10))", "PredictedLabel")
+callsSummary = calls.view("Sym", "Date=convertDate(RSSTimestamp.substring(0,10))", "PredictedLabel")
