@@ -21,8 +21,8 @@ if not "trainData" in globals():
     print("Data not available: please load trainData.csv")
 
 # Ensure credientials are setup to log in to seekingAlpha
-if not "ra-sa-key" in globals():
-    print("Please set Rapid Api key for Seeking Alpha (ra-sa-key='the-key'):")
+if not "ra_sa_key" in globals():
+    print("Please set Rapid Api key for Seeking Alpha (ra_sa_key='the-key'):")
 
 def cleanText(text):
     #to lowercase
@@ -251,6 +251,18 @@ def collate(paragraphs):
         s += paragraph.text
     return s
 
+def getArticle(articleId):
+    url = "https://seeking-alpha.p.rapidapi.com/articles/get-details"
+
+    querystring = {"id":articleId}
+
+    headers = {
+        'x-rapidapi-host': "seeking-alpha.p.rapidapi.com",
+        'x-rapidapi-key': ra_sa_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    return response
 
 def runRSS():
 
@@ -270,6 +282,7 @@ def runRSS():
         linkId=link[link.index('/article/') + len('/article/'): link.index('-')]
 
         #get the transcript article
+        #source= json.loads(getArticle(linkId).text)
         source= json.loads(response.text)
 
         try:
@@ -337,8 +350,7 @@ calls = twt \
     .update("Text = (String)cleanText.call(Text)", "PredictedLabel = (int)predict.call(Text, `c`)", "PredictedLabel = PredictedLabel==0 ? -1 : PredictedLabel") \
     .moveUpColumns("Sym", "Quarter", "RSSTimestamp", "PredictedLabel")
 
-#tt = timeTable("'00:10:00'") \
-#tt = timeTable("'08:00:00'") \
+tt = timeTable("'00:10:00'") \
     .sortDescending("Timestamp") \
     .update("ContainedNewCalls=(boolean)runRSS.call()")
 callsSummary = calls.view("Sym", "Date=convertDate(RSSTimestamp.substring(0,10))", "PredictedLabel")
