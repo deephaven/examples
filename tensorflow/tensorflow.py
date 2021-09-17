@@ -269,6 +269,7 @@ def runRSS():
         print()
         print(link)
         linkId=link[link.index('/article/') + len('/article/'): link.index('-')]
+        print(linkId)
 
         #get the transcript article
         source = requests.get(link).text
