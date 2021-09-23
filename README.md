@@ -16,6 +16,8 @@ The following folders can be found in this repository:
 - **[`metriccentury`](https://github.com/deephaven/examples/tree/main/metriccentury)** - Data recorded from a 100 km bike ride
 - **[`pems`](https://pems.dot.ca.gov/)** - Traffic flow data collected near Davis, CA.
 - **[`taxi`](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)** - Yellow Taxi trip records
+- **[`fit`](https://www.strava.com/)** - Workout results in the proprietary fit format developed by Garmin. Downloadable from Strava.
+- **[`tickingHeartRate`]** - Simulated ticking heart rate data.
 
 ## Description
 
