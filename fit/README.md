@@ -15,24 +15,29 @@ These steps can be run with our example data or your own.
 1. Login to your Strava account.
 1. Select an activity.
 1. At the bottom of the menu, select **...** for more.
+
    ![Strava export menu](StravaExport.png "Strava export menu")
-1. Select **Export Original**. Provided you have supplied the data in fit format, this should now give a downloaded file with extension `.fit`
+1. Select **Export Original**. Provided you have supplied the data in fit format, this should now give a downloaded file with the `.fit` extension.
 1. Put this `.fit` file in the data folder underneath your Docker starting location:
-   See our [Quickstart](https://deephaven.io/core/docs/tutorials/quickstart#set-up-your-deephaven-deployment) for further details.
+   See our [Quickstart](https://deephaven.io/core/docs/tutorials/quickstart/#set-up-your-deephaven-deployment) for more information.
    Add another directory level if desired to keep various projects segmented.
-1. Ensure fitparse is setup (see below).
-1. Run the given file in a Deephaven console: `accessFit.py`.
+1. Ensure fitparse is setup (see [below](#using-fitparse-module)).
+1. Run the `accessFit.py` file in a Deephaven console.
 1. The `heartRateData` table should appear.
+
    ![Heart rate table](heartRateTable.png "Heart rate table")
-1. Click the hamburger menu in the `heartRateData` tab.
-1. Select `Chart Builder`
-1. Select defaults (`Line`, `X-Axis=Timestamp`, `Series=Heart Rate`)
+1. Click the **Table Options** menu in the `heartRateData` tab.
+1. Select **Chart Builder**.
+1. Select defaults: `Line`, `X-Axis=Timestamp`, `Series=Heart Rate`
 1. Press **Create** (note: you may need to scroll to see the button.)
 1. A chart should appear:
+
    ![Heart rate chart](heartRateChart.png "Heart rate chart")
 
 ## Using fitparse module
+
 To use fitparse, install via your current Python session:
+
 ```python
 import os
 os.system("pip install fitparse")
