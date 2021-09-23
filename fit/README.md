@@ -45,24 +45,25 @@ os.system("pip install fitparse")
 
 For more details on making the install persist between sessions, see [How to install Python packages](https://github.com/deephaven/deephaven.io/blob/main/core/docs/how-to-guides/install-python-packages.md).
 
-Note: YMMV (Your mileage may vary) if using a fit file which reports different data types. It appears that different sensors can report different data. In the example here, both GPS and heart rate monitor data is intertwined.
+Note: Your mileage may vary if using a `.fit` file which reports different data types. Different sensors can report different data. In the example here, both GPS and heart rate monitor data is intertwined.
 
 ## Advanced challenge
 
-Some of the most interesting use cases for this data are to be able to correlate the data with other sources of interest to you.
+Some of the most interesting use cases for this data are to correlate the data with other sources of interest to you.
 
-The first step is importing many fit files to compare:
+The first step is importing many `.fit` files to compare:
 
-* Today's heart rate with last month's heart rate.
-* average heart rate last week/month
-* heart rate at different points during the day (morning, lunch, bedtime)
-* correlate live heart rate data, with past heart rate data from your fit files: see`tickingHeartRate` for ideas on getting started with live heart rate data.
+- Today's heart rate with last month's heart rate.
+- Average heart rate last week/month.
+- Heart rate at different points during the day (morning, lunch, bedtime).
+- Correlate live heart rate data with past heart rate data from your `.fit` files: see [`tickingHeartRate`](../tickingHeartRate/README.md) for ideas on getting started with live heart rate data.
 
 For more insight, correlate this data with:
-* diet macro nutrients - do you run faster when you have more protein?
-* sleep patterns - is heart rate affected by the amount of sleep you have had?
-* weather (temperature, wind chill, humidity)
-* confirming health improvements - do you see positive gains in heart health over time
+
+- diet macro nutrients - do you run faster when you have more protein?
+- sleep patterns - is heart rate affected by your amount of sleep?
+- weather - temperature, wind chill, humidity, etc.
+- health improvements - do you see positive gains in heart health over time?
 
 # Source and License
 
