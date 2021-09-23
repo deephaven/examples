@@ -15,7 +15,7 @@ The following folders can be found in this repository:
 - **[`metriccentury`](https://github.com/deephaven/examples/tree/main/metriccentury)** - Data recorded from a 100 km bike ride
 - **[`pems`](https://pems.dot.ca.gov/)** - Traffic flow data collected near Davis, CA.
 - **[`taxi`](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)** - Yellow Taxi trip records
-- **[`tensorflow`](https://www.strava.com/)** - Statistically calculate positive/negative sentiment using machine-learning
+- **[`tensorflow`](https://www.tensorflow.org/)** - Statistically calculate positive/negative sentiment using machine-learning
   training mechanisms based on an RSS feed from Seeking Alpha.
 
 ## Description
