@@ -10,18 +10,18 @@ This app runs using [Deephaven's application mode](https://deephaven.io/core/doc
 
 ### Components
 
-* `Dockerfile` - The dockerfile for the application. This extends the default Deephaven image to [add dependencies](https://deephaven.io/core/docs/how-to-guides/install-python-packages/#add-packages-to-a-custom-docker-image).
-* `docker-compose.yml` - The docker compose file for the application. This is mostly the same as the [Deephaven docker-compose file](https://raw.githubusercontent.com/deephaven/deephaven-core/main/containers/python-examples/docker-compose.yml) with modifications to run Prometheus, application mode, and the custom dependencies.
+* `Dockerfile` - The dockerfile for the application. This extends the default Deephaven image to add dependencies. See our guide, [How to install Python packages](https://deephaven.io/core/docs/how-to-guides/install-python-packages/#add-packages-to-a-custom-docker-image), for more information.
+* `docker-compose.yml` - The Docker Compose file for the application. This is mostly the same as the [Deephaven docker-compose file](https://raw.githubusercontent.com/deephaven/deephaven-core/main/containers/python-examples/docker-compose.yml) with modifications to run Prometheus, application mode, and the custom dependencies.
 * `app.app` - The Deephaven application mode app file.
 * `requirements.txt` - Python dependencies for the application.
 * `start.sh` - A simple helper script to launch the application.
-* `prometheus.py` - The python script that pulls the data from Prometheus and stores it into Deephaven.
+* `prometheus.py` - The Python script that pulls the data from Prometheus and stores it into Deephaven.
 
 ### High level overview
 
 This app pulls data from [Prometheus's API](https://prometheus.io/docs/prometheus/latest/querying/api/) through HTTP requests. The API responses are deserialized, and the desired values are extracted and stored into a Deephaven table.
 
-This app writes to Deephaven tables both [statically](https://deephaven.io/core/docs/how-to-guides/new-table/) and [dynamically](https://deephaven.io/core/docs/how-to-guides/dynamic-table-writer/).
+This app writes to Deephaven tables both statically and dynamically.
 
 ## Dependencies
 
@@ -32,29 +32,35 @@ This app writes to Deephaven tables both [statically](https://deephaven.io/core/
 
 Before launching, you can modify the `PROMETHEUS_QUERIES` and `BASE_URL` values in `prometheus.py` to see the results of different queries, and to point the application at different Prometheus instances.
 
-Once you are set, simply run
+Once you are set, simply run the following to launch the app:
 
 ```
 sh start.sh
 ```
 
-to launch the app. You can go to http://localhost:10000/ide to view the tables in the top right `Panels` tab!
+Go to <http://localhost:10000/ide> to view the tables in the top right **Panels** tab!
 
 ### Ngrok
 
-NOTE: If you are running Prometheus locally and seeing errors like
+
+:::note
+
+If you are running Prometheus locally and seeing errors like:
 
 ```
 HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=up (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4619929a90>: Failed to establish a new connection: [Errno 111] Connection refused'))
 ```
 
-you may need to use [Ngrok](https://ngrok.com/) to make HTTP requests to your Prometheus instance. After installing Ngrok, run
+you may need to use [Ngrok](https://ngrok.com/) to make HTTP requests to your Prometheus instance. 
+
+:::
+After installing Ngrok, run:
 
 ```
 ngrok http 9090
 ```
 
-and use the URL on the terminal that forwards to `http://localhost:9090`to construct the `BASE_URL` value. Example:
+Use the URL on the terminal that forwards to <http://localhost:9090> to construct the `BASE_URL` value. For example:
 
 ```
 BASE_URL = "{base}/api/v1/query".format(base="http://c818-2603-6081-2300-2640-50c5-4e0a-6c65-498d.ngrok.io")
