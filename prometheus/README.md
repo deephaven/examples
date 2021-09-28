@@ -1,6 +1,6 @@
 # Prometheus
 
-This sample app shows how to ingest data from [Prometheus](https://prometheus.io/) into [Deephaven](https://deephaven.io/).
+[Prometheus](https://prometheus.io/) is an open-source systems monitoring and alerting toolkit that collects and stores its metrics as time series data. This sample app shows how to ingest data from Prometheus into [Deephaven](https://deephaven.io/).
 
 ## How it works
 
