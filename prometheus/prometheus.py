@@ -41,7 +41,7 @@ def make_prometheus_request(prometheus_query, query_url):
         prometheus_query (str): The Prometheus query to execute with the API request.
         query_url (str): The URL of the query endpoint.
     Returns:
-        list[(str, str, float)]: The job, instance, and value from the request.
+        list[(str, str, float)]: List of the jobs, instances, and values from the API response.
     """
     results = []
     query_parameters = {

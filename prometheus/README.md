@@ -19,7 +19,7 @@ This app runs using [Deephaven's application mode](https://deephaven.io/core/doc
 
 ### High level overview
 
-This app pulls data from [Prometheus's API](https://prometheus.io/docs/prometheus/latest/querying/api/) through HTTP requests. The API responses are deserialized, and the values are extracted and stored into a Deephaven table.
+This app pulls data from [Prometheus's API](https://prometheus.io/docs/prometheus/latest/querying/api/) through HTTP requests. The API responses are deserialized, and the desired values are extracted and stored into a Deephaven table.
 
 This app writes to Deephaven tables both [statically](https://deephaven.io/core/docs/how-to-guides/new-table/) and [dynamically](https://deephaven.io/core/docs/how-to-guides/dynamic-table-writer/).
 
@@ -39,3 +39,23 @@ sh start.sh
 ```
 
 to launch the app. You can go to http://localhost:10000/ide to view the tables in the top right `Panels` tab!
+
+### Ngrok
+
+NOTE: If you are running Prometheus locally and seeing errors like
+
+```
+HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: /api/v1/query?query=up (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4619929a90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+```
+
+you may need to use [Ngrok](https://ngrok.com/) to make HTTP requests to your Prometheus instance. After installing Ngrok, run
+
+```
+ngrok http 9090
+```
+
+and use the URL on the terminal that forwards to `http://localhost:9090`to construct the `BASE_URL` value. Example:
+
+```
+BASE_URL = "{base}/api/v1/query".format(base="http://c818-2603-6081-2300-2640-50c5-4e0a-6c65-498d.ngrok.io")
+```
