@@ -54,6 +54,7 @@ HTTPConnectionPool(host='localhost', port=9090): Max retries exceeded with url: 
 you may need to use [Ngrok](https://ngrok.com/) to make HTTP requests to your Prometheus instance. 
 
 :::
+
 After installing Ngrok, run:
 
 ```
