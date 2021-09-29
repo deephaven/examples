@@ -14,7 +14,7 @@ One will be a static table and the other will be continually updating with real 
 """
 from deephaven.TableTools import newTable, stringCol, dateTimeCol, doubleCol
 from deephaven import DynamicTableWriter
-from deephaven.DBTimeUtils import currentTime
+from deephaven.DBTimeUtils import millisToTime
 import deephaven.Types as dht
 from typing import Callable
 
@@ -31,7 +31,7 @@ ApplicationState = jpy.get_type("io.deephaven.appmode.ApplicationState")
 def make_prometheus_request(prometheus_query, query_url):
     """
     A helper method that makes a request on the Prometheus API with the given
-    query, and returns a list of results containing the job, instance, and value for the query.
+    query, and returns a list of results containing the timestamp, job, instance, and value for the query.
     The data returned by this method will be stored in a Deephaven table.
 
     This assumes that the query is going to return a "vector" type from the Prometheus API.
@@ -41,7 +41,7 @@ def make_prometheus_request(prometheus_query, query_url):
         prometheus_query (str): The Prometheus query to execute with the API request.
         query_url (str): The URL of the query endpoint.
     Returns:
-        list[(str, str, float)]: List of the jobs, instances, and values from the API response.
+        list[(date-time, str, str, float)]: List of the timestamps, jobs, instances, and values from the API response.
     """
     results = []
     query_parameters = {
@@ -53,10 +53,13 @@ def make_prometheus_request(prometheus_query, query_url):
     if "data" in response_json.keys():
         if "resultType" in response_json["data"] and response_json["data"]["resultType"] == "vector":
             for result in response_json["data"]["result"]:
+                #Prometheus timestamps are in seconds. We multiply by 1000 to convert it to
+                #milliseconds, then cast to an int() to use the millisToTime() method
+                timestamp = millisToTime(int(result["value"][0] * 1000))
                 job = result["metric"]["job"]
                 instance = result["metric"]["instance"]
                 value = float(result["value"][1])
-                results.append((job, instance, value))
+                results.append((timestamp, job, instance, value))
     return results
 
 def start_dynamic(app: ApplicationState):
@@ -76,10 +79,9 @@ def start_dynamic(app: ApplicationState):
     def thread_func():
         while True:
             for prometheus_query in PROMETHEUS_QUERIES:
-                date_time = currentTime()
                 values = make_prometheus_request(prometheus_query, BASE_URL)
 
-                for (job, instance, value) in values:
+                for (date_time, job, instance, value) in values:
                     table_writer.logRow(date_time, prometheus_query, job, instance, value)
             time.sleep(2)
 
@@ -102,10 +104,9 @@ def start_static(app: ApplicationState, query_count=5):
 
     for i in range(query_count):
         for prometheus_query in PROMETHEUS_QUERIES:
-            date_time = currentTime()
             values = make_prometheus_request(prometheus_query, BASE_URL)
 
-            for (job, instance, value) in values:
+            for (date_time, job, instance, value) in values:
                 date_time_list.append(date_time)
                 prometheus_query_list.append(prometheus_query)
                 job_list.append(job)
