@@ -24,7 +24,7 @@ import threading
 import time
 
 PROMETHEUS_QUERIES = ["up", "go_memstats_alloc_bytes"] #Edit this and add your queries here
-BASE_URL = "{base}/api/v1/query".format(base="http://localhost:9090") #Edit this to your base URL if you're not using a local Prometheus instance
+BASE_URL = "{base}/api/v1/query".format(base="http://prometheus:9090") #Edit this to your base URL if you're not using a local Prometheus instance
 
 ApplicationState = jpy.get_type("io.deephaven.appmode.ApplicationState")
 
@@ -87,7 +87,7 @@ def start_dynamic(app: ApplicationState):
     thread = threading.Thread(target = thread_func)
     thread.start()
 
-def start_static(app: ApplicationState, query_count=3):
+def start_static(app: ApplicationState, query_count=5):
     """
     Deephaven Application Mode method that starts the static data collector.
 
