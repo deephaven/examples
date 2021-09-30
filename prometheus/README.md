@@ -38,7 +38,7 @@ Once you are set, simply run the following to launch the app:
 sh start.sh
 ```
 
-Go to <http://localhost:10000/ide> to view the tables in the top right **Panels** tab!
+Go to [http://localhost:10000/ide](http://localhost:10000/ide) to view the tables in the top right **Panels** tab!
 
 ### Ngrok
 
