@@ -55,13 +55,13 @@ you may need to use [Ngrok](https://ngrok.com/) to make HTTP requests to your Pr
 
 :::
 
-After installing Ngrok, run:
+After [installing Ngrok](https://ngrok.com/download), run the following in a separate terminal:
 
 ```
 ngrok http 9090
 ```
 
-Use the URL on the terminal that forwards to <http://localhost:9090> to construct the `BASE_URL` value. For example:
+Use the URL on the terminal that forwards to <http://localhost:9090> to construct the `BASE_URL` value. Edit this value in `prometheus.py` and re-launch the application. For example:
 
 ```
 BASE_URL = "{base}/api/v1/query".format(base="http://c818-2603-6081-2300-2640-50c5-4e0a-6c65-498d.ngrok.io")
