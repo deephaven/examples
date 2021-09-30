@@ -9,7 +9,7 @@ services:
       - ./data:/data
       - api-cache:/cache
     environment:
-      - JAVA_TOOL_OPTIONS=-Xmx4g -Ddeephaven.console.type=python -Ddeephaven.application.dir=/
+      - JAVA_TOOL_OPTIONS=-Xmx4g -Ddeephaven.console.type=python -Ddeephaven.application.dir=/app.d
 
   web:
     image: ghcr.io/deephaven/web:${VERSION:-latest}

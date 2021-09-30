@@ -1,4 +1,3 @@
 FROM ghcr.io/deephaven/grpc-api
-COPY cryptoApp.app /
-COPY crypto.py /
-run pip3 install pycoingecko
+COPY app.d/ /app.d
+RUN pip3 install pycoingecko

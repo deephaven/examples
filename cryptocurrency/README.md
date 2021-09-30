@@ -2,13 +2,49 @@
 
 The script will pull live and historical data for specified cryptocurencies from the [CoinGecko](https://www.coingecko.com/) website into [Deephaven](https://github.com/deephaven/deephaven-core).
 
+
+## How it works
+
+### Deephaven application mode
+
+This app runs using [Deephaven's application mode](https://deephaven.io/core/docs/how-to-guides/app-mode/).
+
+### Components
+* `Dockerfile` - The dockerfile for the application. This extends the default Deephaven image to add dependencies. See our guide, [How to install Python packages](https://deephaven.io/core/docs/how-to-guides/install-python-packages/#add-packages-to-a-custom-docker-image), for more information.
+* `docker-compose.yml` - The Docker Compose file for the application. This is mostly the same as the [Deephaven docker-compose file](https://raw.githubusercontent.com/deephaven/deephaven-core/main/containers/python-examples/docker-compose.yml) with modifications to run in application mode.
+* `start.sh` - A simple helper script to launch the application.
+* `app.d/cryptoApp.app` - The Deephaven application mode app file.
+* `app.d/crypto.py` - The Python script that pulls the data from [CoinGecko](https://www.coingecko.com/) and stores it into Deephaven.
+* `crypto.png` - Image of the end state of Deephaven tables.
+
+
+### High level overview
+
+This app pulls data from  [CoinGecko](https://www.coingecko.com/) through HTTP requests. The API responses are deserialized, and the desired values are extracted and stored into a Deephaven table.
+
+Once data is collected and tables are created, various [Deephaven queries](https://deephaven.io/core/docs/how-to-guides/simple-python-query/) are then performed on the tables.
+
+This app writes to Deephaven tables both statically and dynamically.
+
+## Dependencies
+
+* The [Deephaven-core dependencies](https://github.com/deephaven/deephaven-core#required-dependencies) are required for this project.
+
+## Launch
+
+Before launching, you can modify the `ids` and `daysHistory` values in `crypto.py`.
+
+Once you are set, simply run the following to launch the app:
+
+```
+sh start.sh
+```
+
+Go to [http://localhost:10000/ide](http://localhost:10000/ide) to view the tables in the top right **Panels** tab!
+
 ## Variables
-- **`timeToWatch`:** Integer number of minutes to run the script.
 - **`secondsToSleep`:** Integer number of seconds between data pulls.  It is recommended that this number is 10 or higher. Note that too frequent requests will generate an HTTP status: '429 Too Many Requests'.
-- **`getHistory`:** Boolean value.
-   -  `false` for only live data.
-   -  `true` for live and historical data.
-- **`daysHistory`:** Integer number of days to collect history. Data has automatic granularity. 
+- **`daysHistory`:** Integer number of days to collect history. Data has automatic granularity.
    - Minutely data will be returned for a duration within 1 day.
    - Hourly data will be returned for a duration between 1 day and 90 days.
    - Daily data will be returned for a duration above 90 days.
@@ -16,9 +52,7 @@ The script will pull live and historical data for specified cryptocurencies from
 
 # Outcome
 
-Upon running the script in your Deephaven IDE, the `result` table will be created.  
-
-This table can be sorted on the `Timestamp` column to see new data streaming in.
+Upon running the script in your Deephaven IDE, the `HistoricalCryptoTable` and `LiveCryptoTable` tables will be created.  
 
 ![img](./crypto1.png)
 
