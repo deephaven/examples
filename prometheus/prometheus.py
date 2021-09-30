@@ -123,6 +123,29 @@ def start_static(app: ApplicationState, query_count=5):
     ) 
     app.setField("result_static", result)
 
+def update(app: ApplicationState):
+    """
+    Deephaven Application Mode method that does various updates on the initial tables.
+
+    You can throw any Deehaven Query in here. The ones in here are simply examples.
+    """
+    #Get the tables from the app
+    result_static = app.getField("result_static").value()
+    result_dynamic = app.getField("result_dynamic").value()
+
+    #Perform the desired queries, and set the results as new fields
+    result_static_update = result_static.by("PrometheusQuery")
+    app.setField("result_static_update", result_static_update)
+
+    result_static_average = result_static.dropColumns("DateTime", "Job", "Instance").avgBy("PrometheusQuery")
+    app.setField("result_static_average", result_static_average)
+
+    result_dynamic_update = result_dynamic.by("PrometheusQuery")
+    app.setField("result_dynamic_update", result_dynamic_update)
+
+    result_dynamic_average = result_dynamic.dropColumns("DateTime", "Job", "Instance").avgBy("PrometheusQuery")
+    app.setField("result_dynamic_average", result_dynamic_average)
+
 def initialize(func: Callable[[ApplicationState], None]):
     """
     Deephaven Application Mode initialization method.
@@ -133,3 +156,5 @@ def initialize(func: Callable[[ApplicationState], None]):
 #Start the static and dynamic data collectors
 initialize(start_static)
 initialize(start_dynamic)
+#Run the table updates
+initialize(update)

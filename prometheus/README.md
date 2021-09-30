@@ -21,6 +21,8 @@ This app runs using [Deephaven's application mode](https://deephaven.io/core/doc
 
 This app pulls data from [Prometheus's API](https://prometheus.io/docs/prometheus/latest/querying/api/) through HTTP requests. The API responses are deserialized, and the desired values are extracted and stored into a Deephaven table.
 
+Once data is collected and tables are created, various [Deephaven queries](https://deephaven.io/core/docs/how-to-guides/simple-python-query/) are then performed on the tables.
+
 This app writes to Deephaven tables both statically and dynamically.
 
 ## Dependencies
