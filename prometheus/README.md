@@ -12,10 +12,10 @@ This app runs using [Deephaven's application mode](https://deephaven.io/core/doc
 
 * `Dockerfile` - The dockerfile for the application. This extends the default Deephaven image to add dependencies. See our guide, [How to install Python packages](https://deephaven.io/core/docs/how-to-guides/install-python-packages/#add-packages-to-a-custom-docker-image), for more information.
 * `docker-compose.yml` - The Docker Compose file for the application. This is mostly the same as the [Deephaven docker-compose file](https://raw.githubusercontent.com/deephaven/deephaven-core/main/containers/python-examples/docker-compose.yml) with modifications to run Prometheus, application mode, and the custom dependencies.
-* `app.app` - The Deephaven application mode app file.
-* `requirements.txt` - Python dependencies for the application.
 * `start.sh` - A simple helper script to launch the application.
-* `prometheus.py` - The Python script that pulls the data from Prometheus and stores it into Deephaven.
+* `app.d/app.app` - The Deephaven application mode app file.
+* `app.d/requirements.txt` - Python dependencies for the application.
+* `app.d/prometheus.py` - The Python script that pulls the data from Prometheus and stores it into Deephaven.
 
 ### High level overview
 
