@@ -57,7 +57,7 @@ you may need to use [Ngrok](https://ngrok.com/) to make HTTP requests to your Pr
 
 :::
 
-After [installing Ngrok](https://ngrok.com/download), run the following in a separate terminal:
+[Install Ngrok](https://ngrok.com/download) on the machine that is running your Prometheus instance, then run the following in a new terminal window on that same machine:
 
 ```
 ngrok http 9090
