@@ -13,9 +13,6 @@ from time import sleep, time
 import pandas as pd
 import threading
 
-
-ApplicationState = jpy.get_type('io.deephaven.appmode.ApplicationState')
-
 # secondsToSleep should be 10 or higher. If too fast, will hit request limit.
 secondsToSleep = 10
 
@@ -25,6 +22,10 @@ daysHistory = 90
 # coins to get data
 ids = ['bitcoin', 'ethereum', 'litecoin', 'dogecoin', 'tether', 'binancecoin', 'cardano', 'ripple', 'polkadot']
 
+# below this line there are no variables that need changed
+########################################################################
+
+ApplicationState = jpy.get_type('io.deephaven.appmode.ApplicationState')
 
 def crypto_historical(app: ApplicationState):
     tableArray = []
