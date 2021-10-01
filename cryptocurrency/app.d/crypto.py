@@ -22,6 +22,10 @@ daysHistory = 90
 # coins to get data
 ids = ['bitcoin', 'ethereum', 'litecoin', 'dogecoin', 'tether', 'binancecoin', 'cardano', 'ripple', 'polkadot']
 
+getLive = True
+
+getHistory = True
+
 # below this line there are no variables that need changed
 ########################################################################
 
@@ -72,5 +76,7 @@ def initialize(func: Callable[[ApplicationState], None]):
   app = jpy.get_type('io.deephaven.appmode.ApplicationContext').get()
   func(app)
 
-initialize(crypto_historical)
-initialize(crypto_live)
+if getHistory: 
+	initialize(crypto_historical)
+if getLive:
+	initialize(crypto_live)
