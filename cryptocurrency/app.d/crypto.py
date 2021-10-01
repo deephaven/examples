@@ -29,9 +29,10 @@ getHistory = True
 # below this line there are no variables that need changed
 ########################################################################
 
+
 ApplicationState = jpy.get_type('io.deephaven.appmode.ApplicationState')
 
-def crypto_historical(app: ApplicationState):
+def get_coingecko_table_historical(daysHistory = 90):
     tableArray = []
     cg = CoinGeckoAPI()
 
@@ -41,10 +42,10 @@ def crypto_historical(app: ApplicationState):
         sub = pd.DataFrame(coin_data_hist)
         coin_query = "Coin = `{id}`".format(id=id)
         tableArray.append(dataFrameToTable(sub).view("DateTime = millisToTime((long)prices_[i][0])", coin_query, "Price = prices_[i][1]", "MarketCap = market_caps_[i][1]", "TotalVolume = total_volumes_[i][1]").moveUpColumns("DateTime", "Coin"))
-    result = merge(tableArray).selectDistinct("DateTime", "Coin", "Price", "MarketCap", "TotalVolume").sortDescending("DateTime", "Coin")
-    app.setField("HistoricalCryptoTable", result)
+    return merge(tableArray).selectDistinct("DateTime", "Coin", "Price", "MarketCap", "TotalVolume").sortDescending("DateTime", "Coin")
 
-def crypto_live(app: ApplicationState):
+
+def get_coingecko_table_live(secondsToSleep = 60):
     cg = CoinGeckoAPI()
 
     # array to store tables for current and previous data
@@ -67,16 +68,14 @@ def crypto_live(app: ApplicationState):
 
             sleep(secondsToSleep)
 
-    app.setField('LiveCryptoTable', result)
     thread = threading.Thread(target = thread_func)
     thread.start()
+    return result
 
 
-def initialize(func: Callable[[ApplicationState], None]):
-  app = jpy.get_type('io.deephaven.appmode.ApplicationContext').get()
-  func(app)
 
-if getHistory: 
-	initialize(crypto_historical)
+if getHistory:
+    HistoricalCryptoTable = get_coingecko_table_historical(daysHistory)
+
 if getLive:
-	initialize(crypto_live)
+    LiveCryptoTable = get_coingecko_table_live(secondsToSleep)
