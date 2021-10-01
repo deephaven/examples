@@ -3,8 +3,6 @@ from pycoingecko import CoinGeckoAPI
 from deephaven.DBTimeUtils import secondsToTime, millisToTime
 from deephaven.TableTools import merge
 from deephaven import DynamicTableWriter
-from deephaven import TableTools
-from typing import Callable
 
 import deephaven.Types as dht
 import jpy
@@ -28,9 +26,6 @@ getHistory = True
 
 # below this line there are no variables that need changed
 ########################################################################
-
-
-ApplicationState = jpy.get_type('io.deephaven.appmode.ApplicationState')
 
 def get_coingecko_table_historical(daysHistory = 90):
     tableArray = []
@@ -71,8 +66,6 @@ def get_coingecko_table_live(secondsToSleep = 60):
     thread = threading.Thread(target = thread_func)
     thread.start()
     return result
-
-
 
 if getHistory:
     HistoricalCryptoTable = get_coingecko_table_historical(daysHistory)
