@@ -43,7 +43,7 @@ sh start.sh
 Go to [http://localhost:10000/ide](http://localhost:10000/ide) to view the tables in the top right **Panels** tab!
 
 ## Variables
-- **`secondsToSleep`:** Integer number of seconds between data pulls.  It is recommended that this number is 10 or higher. Note that too frequent requests will generate an HTTP status: '429 Too Many Requests'.
+- **`secondsToSleep`:** Integer number of seconds between data pulls.  It is recommended that this number is 10 or higher. Note that too frequent requests will generate an HTTP status: '429 Too Many Requests'. The [CoinGecko free API](https://www.coingecko.com/en/api/documentation) has a rate limit of 50 calls/minute.
 - **`daysHistory`:** Integer number of days to collect history. Data has automatic granularity.
    - Minutely data will be returned for a duration within 1 day.
    - Hourly data will be returned for a duration between 1 day and 90 days.
