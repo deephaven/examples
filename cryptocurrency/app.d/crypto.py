@@ -14,7 +14,7 @@ import pandas as pd
 import threading
 
 # secondsToSleep should be 10 or higher. If too fast, will hit request limit.
-secondsToSleep = 10
+secondsToSleep = 60
 
 # if getHistory = true, the days to pull
 daysHistory = 90
