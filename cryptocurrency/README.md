@@ -11,7 +11,7 @@ This app runs using [Deephaven's application mode](https://deephaven.io/core/doc
 
 ### Components
 * `Dockerfile` - The dockerfile for the application. This extends the default Deephaven image to add dependencies. See our guide, [How to install Python packages](https://deephaven.io/core/docs/how-to-guides/install-python-packages/#add-packages-to-a-custom-docker-image), for more information.
-* `docker-compose.yml` - The Docker Compose file for the application. This is mostly the same as the [Deephaven docker-compose file](https://raw.githubusercontent.com/deephaven/deephaven-core/main/containers/python-examples/docker-compose.yml) with modifications to run in application mode.
+* `docker-compose.yml` - The Docker Compose file for the application. This is mostly the same as the [Deephaven docker-compose file](https://raw.githubusercontent.com/deephaven/deephaven-core/main/containers/python-examples/docker-compose.yml), with modifications to run in application mode.
 * `start.sh` - A simple helper script to launch the application.
 * `app.d/cryptoApp.app` - The Deephaven application mode app file.
 * `app.d/crypto.py` - The Python script that pulls the data from [CoinGecko](https://www.coingecko.com/) and stores it into Deephaven.
@@ -22,7 +22,7 @@ This app runs using [Deephaven's application mode](https://deephaven.io/core/doc
 
 This app pulls data from [CoinGecko](https://www.coingecko.com/) through HTTP requests. The API responses are deserialized, and the desired values are extracted and stored in a Deephaven table.
 
-Once data is collected and tables are created, various Deephaven queries are then performed on the tables.
+Once data is collected and tables are created, various Deephaven queries are then performed on the tables. See the [Deephaven Community Core documentation](https://deephaven.io/core/docs/) to learn more about these methods.
 
 This app writes to Deephaven tables both statically and dynamically.
 
