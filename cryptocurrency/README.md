@@ -20,9 +20,9 @@ This app runs using [Deephaven's application mode](https://deephaven.io/core/doc
 
 ### High level overview
 
-This app pulls data from  [CoinGecko](https://www.coingecko.com/) through HTTP requests. The API responses are deserialized, and the desired values are extracted and stored into a Deephaven table.
+This app pulls data from [CoinGecko](https://www.coingecko.com/) through HTTP requests. The API responses are deserialized, and the desired values are extracted and stored in a Deephaven table.
 
-Once data is collected and tables are created, various [Deephaven queries](https://deephaven.io/core/docs/how-to-guides/simple-python-query/) are then performed on the tables.
+Once data is collected and tables are created, various Deephaven queries are then performed on the tables.
 
 This app writes to Deephaven tables both statically and dynamically.
 
