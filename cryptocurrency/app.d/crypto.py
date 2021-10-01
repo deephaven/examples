@@ -23,11 +23,11 @@ secondsToSleep = 10
 daysHistory = 90
 
 # coins to get data
-ids=['bitcoin', 'ethereum','litecoin', 'dogecoin', 'tether', 'binancecoin', 'cardano', 'ripple', 'polkadot']
+ids = ['bitcoin', 'ethereum', 'litecoin', 'dogecoin', 'tether', 'binancecoin', 'cardano', 'ripple', 'polkadot']
 
 
 def crypto_historical(app: ApplicationState):
-    tableArray=[]
+    tableArray = []
     cg = CoinGeckoAPI()
 
     # get historical data
