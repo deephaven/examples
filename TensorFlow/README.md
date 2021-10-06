@@ -1,7 +1,7 @@
 # Tensorflow example demonstrating data from Seeking Alpha
 
 Pull a RSS feed from Seeking Alpha, and statistically calculate positive/negative sentiment using machine-learning
-training mechanisms.
+training mechanisms within [TensorFlow](https://www.tensorflow.org/).
 
 ## Table of contents
 

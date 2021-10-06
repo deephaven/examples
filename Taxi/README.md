@@ -1,6 +1,6 @@
 # Taxi Sample data
 
-This folder contains sample data files concerning taxi rides in NYC from October 31, 2018 and November 1, 2018 that work within the Deephaven console.
+This folder contains sample data files concerning taxi rides in NYC from October 31, 2018 and November 1, 2018 that work within the Deephaven console. The data is taken from the [Azure NYC Taxi dataset](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/).
 
 ## Table of contents
 

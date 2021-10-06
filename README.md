@@ -8,18 +8,19 @@ This repository contains open source data sets.  They are intended to be used as
 
 The following folders can be found in this repository:
 
-- **[`cryptocurrency`](https://www.coingecko.com/)** - Script to pull live and historical data for specified cryptocurencies
-- **[`csvParquet_crypto`](https://www.coingecko.com/)** -Data from [CoinGecko](https://www.coingecko.com/) to highlight use of CSV and Parquet data formats.
-- **[`DeNiro`](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)** - Data on Robert De Niro's movies up to 2016
-- **[`gsod`](https://catalog.data.gov/dataset/global-surface-summary-of-the-day-gsod)** - Global Surface Summary of the Day (GSOD) weather data
-- **[`iris`](https://archive.ics.uci.edu/ml/datasets/iris)** - The iris flower data set from Ronald Fisher's 1936 paper
-- **[`metriccentury`](https://github.com/deephaven/examples/tree/main/metriccentury)** - Data recorded from a 100 km bike ride
-- **[`pems`](https://pems.dot.ca.gov/)** - Traffic flow data collected near Davis, CA.
-- **[`taxi`](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)** - Yellow Taxi trip records
-- **[`tensorflow`](https://www.tensorflow.org/)** - Statistically calculate positive/negative sentiment using machine-learning
+- **[`CryptoCurrency`](./CryptoCurrency)** - Script to pull live and historical data for specified cryptocurencies
+- **[`CsvParquetCrypto`](./CsvParquetCrypto)** - Data from [CoinGecko](https://www.coingecko.com/) to highlight use of CSV and Parquet data formats.
+- **[`DeNiro`](./DeNiro)** - Data on Robert De Niro's movies up to 2016
+- **[`Fit`](./Fit)** - Workout results in the proprietary fit format developed by Garmin. Downloadable from Strava.
+- **[`GSOD`](./GSOD)** - Global Surface Summary of the Day (GSOD) weather data
+- **[`Iris`](./Iris)** - The iris flower data set from Ronald Fisher's 1936 paper
+- **[`MetricCentury`](./MetricCentury)** - Data recorded from a 100 km bike ride
+- **[`Pems`](./Pems)** - Traffic flow data collected near Davis, CA.
+- **[`Prometheus`](./Prometheus)** - System monitoring data from Prometheus.
+- **[`Taxi`](./Taxi)** - Yellow Taxi trip records
+- **[`TensorFlow`](./TensorFlow)** - Statistically calculate positive/negative sentiment using machine-learning
   training mechanisms based on an RSS feed from Seeking Alpha.
-- **[`fit`](https://www.strava.com/)** - Workout results in the proprietary fit format developed by Garmin. Downloadable from Strava.
-- **[`tickingHeartRate`]** - Simulated ticking heart rate data.
+- **[`TickingHeartRate`](./TickingHeartRate)** - Simulated ticking heart rate data.
 
 ## Description
 
@@ -28,6 +29,7 @@ Each folder in this repository has the following structure within:
  - `README` - An explanation of everything about the data
  - `csv` - A folder with all relevant data in either CSV or TSV format (if available)
  - `parquet` - A folder with all relevant data in parquet format (if available)
+ - Files to run a Python and/or Groovy script will be included (if available)
 
 ## Installation Instructions
 

@@ -1,6 +1,6 @@
 # Weather Observation Data
 
-This directory contains daily weather observations from 19 different locations around the world. The observations start in the 1940s and are continuous to the present day. In total, there are 57,330 observations.
+This directory contains [daily weather observations](https://catalog.data.gov/dataset/global-surface-summary-of-the-day-gsod) from 19 different locations around the world. The observations start in the 1940s and are continuous to the present day. In total, there are 57,330 observations.
 
 The samples come from the NOAA Global Surface Summary of the Day (GSOD) collection.
 
