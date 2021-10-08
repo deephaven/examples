@@ -13,6 +13,7 @@ The following folders can be found in this repository:
 - **[`DeNiro`](./DeNiro)** - Data on Robert De Niro's movies up to 2016.
 - **[`Fit`](./Fit)** - Workout results in the proprietary fit format developed by Garmin. Downloadable from Strava.
 - **[`GSOD`](./GSOD)** - Global Surface Summary of the Day (GSOD) weather data.
+- **[`Insurance`](./Insurance)** - A dataset of insurance charges given some indicators of patient health.
 - **[`Iris`](./Iris)** - The iris flower data set from Ronald Fisher's 1936 paper.
 - **[`MetricCentury`](./MetricCentury)** - Data recorded from a 100 km bike ride.
 - **[`Pems`](./Pems)** - Traffic flow data collected near Davis, CA.
