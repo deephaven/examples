@@ -1,0 +1,5 @@
+source install.sh
+sh start.sh
+source clean.sh
+
+TODO: Figure out how to do this in Docker
