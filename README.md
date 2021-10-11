@@ -2,6 +2,7 @@
 
 This repository contains open source data sets.  They are intended to be used as part of an introduction to the Deephaven Community Core Engine.  For more information, check out [Deephaven Community Core](https://github.com/deephaven/deephaven-core).
 
+[![Join the chat at https://gitter.im/deephaven/deephaven](https://badges.gitter.im/deephaven/deephaven.svg)](https://gitter.im/deephaven/deephaven?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![Build CI](https://github.com/deephaven/examples/actions/workflows/build-ci.yml/badge.svg?branch=main)
 
 ## Table of Contents
