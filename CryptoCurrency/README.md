@@ -1,4 +1,4 @@
-# Cryptocurrency
+# CryptoCurrency
 
 The script will pull live and historical data for specified cryptocurencies from the [CoinGecko](https://www.coingecko.com/) website into [Deephaven](https://github.com/deephaven/deephaven-core).
 
