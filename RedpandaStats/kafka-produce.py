@@ -45,6 +45,7 @@
 
 from confluent_kafka import Producer
 
+import re
 import sys
 import json
 import time
@@ -70,19 +71,20 @@ while True:
     lines = data.splitlines()
     for line in lines[1:]:
         args = line.split( )
+        print(re.findall('\d*\.?\d+',args[2])[0])
         if len(args) == 14:
             container = {
             "container": args[0],
             "name": args[1],
-            "cpu": args[2],
-            "memory usage": args[3],
-            "memory limit": args[5],
-            "memory %": args[6],
-            "network i": args[7],
-            "network o": args[9],
-            "block i": args[10],
-            "block o": args[12],
-            "pids": args[13]
+            "cpuPercent": re.findall('\d*\.?\d+',args[2])[0],
+            "memoryUsage": args[3],
+            "memoryLimit": args[5],
+            "memoryPercent": re.findall('\d*\.?\d+',args[6])[0],
+            "networkInput": args[7],
+            "networkOutput": args[9],
+            "blockInput": args[10],
+            "blockOutput": args[12],
+            "pids": re.findall('\d*\.?\d+',args[13])[0]
             }
 
         # convert into JSON:
@@ -98,10 +100,3 @@ while True:
         producer.produce(topic=topic_name, key=None, value=y)
         producer.flush()
         time.sleep(0.5)
-
-
-
-def dump():
-    ps_keys = ["container", "image", "command", "created", "status", "ports", "names", "size"]
-    stats_keys = ["container", "name", "cpu", "memory usage", "memory limit", "memory %", "network i", "slash1",
-    "network o", "block i", "slash1", "block o", "pids"]

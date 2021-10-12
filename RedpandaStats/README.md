@@ -41,15 +41,15 @@ from deephaven import Types as dht
 result= kt.consumeToTable({'bootstrap.servers': 'redpanda:29092'} , 'docker-stats', key=kt.IGNORE, value=kt.json([
     ('container', dht.string),
     ('name',   dht.string),
-    ('cpu',  dht.string),
-    ('memory usage',   dht.string),
-    ('memory limit', dht.string),
-    ('memory %',   dht.string),
-    ('network i',  dht.string),
-    ('network o',    dht.string),
-    ('block i',  dht.string),
-    ('block o',    dht.string),
-    ('pids',    dht.string)
+    ('cpuPercent',  dht.double),
+    ('memoryUsage',   dht.string),
+    ('memoryLimit', dht.string),
+    ('memoryPercent',   dht.double),
+    ('networkInput',  dht.string),
+    ('networkOutput',    dht.string),
+    ('blockInput',  dht.string),
+    ('blockOutput',    dht.string),
+    ('pids',    dht.int32)
     ]),table_type = 'append')
   ```
 
