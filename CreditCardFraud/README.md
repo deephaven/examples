@@ -1,4 +1,4 @@
-# Credit Card Fraud Data
+# Credit card fraud data
 
 This directory contains a [credit card purchase dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud) with anonymized parameters.  48 hours of purchases by European cardholders are recorded.  There are 284,807 purchases in total, and 492 of them are fraudulent.
 
@@ -9,7 +9,7 @@ The `creditcard.csv` file contains 31 columns of data.  These columns are:
 - **Time** - The integer number of seconds after the first purchase in the file.
 - **V1 - V28** - The 28 anonymized PCA transformed purchase parameters.
 - **Amount** - The purchase amount in Euros.
-- **Class** - A flag indicating a valid (0) or fraudulent (1) purchase
+- **Class** - A flag indicating a valid (0) or fraudulent (1) purchase.
 
 # Source and license
 
