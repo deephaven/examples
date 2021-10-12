@@ -1,6 +1,6 @@
-# Credit Card Fraud Data
+# Credit card fraud data
 
-This directory contains a [credit card purchase dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud).  The data set contains anonymized parameters for 48 hours worth of purchases by European cardholders.  There are 284,807 purchases in total, and 492 of them are fraudulent.
+This directory contains a [credit card purchase dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud) with anonymized parameters for 48 hours worth of purchases by European cardholders.  There are 284,807 purchases in total, and 492 of them are fraudulent.
 
 ## Fields in `creditcard.csv`
 
@@ -9,11 +9,13 @@ The `creditcard.csv` file contains 31 columns of data.  These columns are:
 - **Time** - The integer number of seconds after the first purchase in the file.
 - **V1 - V28** - The 28 anonymized PCA transformed purchase parameters.
 - **Amount** - The purchase amount in Euros.
-- **Class** - A flag indicating a valid (0) or fraudulent (1) purchase
+- **Class** - A flag indicating a valid (0) or fraudulent (1) purchase.
 
 # Source and license
 
-This data is taken directly from [Kaggle](https://kaggle.com).  It is provided here for demonstrative use without any warranty as to the accuracy, reliability, or completeness of the data.  Credit for the dataset goes to:
+This data is taken directly from [Kaggle](https://kaggle.com).  It is provided here for demonstrative use without any warranty as to the accuracy, reliability, or completeness of the data.  
+
+Credit for the dataset goes to:
 
 Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. [Calibrating Probability with Undersampling for Unbalanced Classification](https://www.researchgate.net/publication/283349138_Calibrating_Probability_with_Undersampling_for_Unbalanced_Classification). In Symposium on Computational Intelligence and Data Mining (CIDM), IEEE, 2015
 
