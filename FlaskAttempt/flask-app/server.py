@@ -1,16 +1,33 @@
 from flask import Flask
+from pydeephaven import Session
 
 app = Flask(__name__)
+session = Session()
 
+init = """
+from deephaven import DynamicTableWriter
+import deephaven.Types as dht
+
+table_writer = DynamicTableWriter(
+    ["A"],
+    [dht.int_]
+)
+
+table = table_writer.getTable()
+"""
+
+update_template = """
+def update(x):
+    table_writer.logRow(x)
+
+update({value})
+"""
+
+session.run_script(init)
 
 @app.route('/')
 def hello():
-    from pydeephaven import Session
-    session = Session()
-    table1 = session.time_table(period=1000000).update(column_specs=["Col1 = i % 2"])
-    df = table1.snapshot().to_pandas()
-    import time
-    time.sleep(5)
-    return df.to_html()
+    session.run_script(update_template.format(value="3"))
+    return "Request received"
 
 app.run(port=5000, host="0.0.0.0")

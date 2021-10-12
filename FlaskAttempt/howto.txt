@@ -2,4 +2,4 @@ source install.sh
 sh start.sh
 source clean.sh
 
-TODO: Figure out how to do this in Docker
+TODO: Figure out how to run the python script in Docker
