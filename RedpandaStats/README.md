@@ -1,17 +1,17 @@
 # Redpanda and Deephaven
 
-[Redpanda](https://vectorized.io/) is an open-source Kafka-compatible event streaming platform. This sample app shows how to ingest Docker stats data from RedPanda into [Deephaven](https://deephaven.io/).
+[Redpanda](https://vectorized.io/) is an open-source Kafka-compatible event streaming platform. This sample app shows how to ingest Docker stats data from Redpanda into [Deephaven](https://deephaven.io/).
 
 
 ## How it works
 
 ### Deephaven
 
-This app runs using Deephaven with Docker. See our [Quickstart](https://deephaven.io/core/docs/tutorials/quickstart/) .
+This app runs using Deephaven with Docker. See our [Quickstart](https://deephaven.io/core/docs/tutorials/quickstart/).
 
 ### Components
 
-* `docker-compose.yml` - The Docker Compose file for the application. This is the same as the Deephaven `docker-compose` file with RedPanda described in our [Simple Kafka import](https://deephaven.io/core/docs/how-to-guides/kafka-simple/).
+* `docker-compose.yml` - The Docker Compose file for the application. This is the same as the Deephaven `docker-compose` file with Redpanda described in our [Simple Kafka import](https://deephaven.io/core/docs/how-to-guides/kafka-simple/).
 * `kafka-produce.py` - The Python script that pulls the data from Docker stats into streaming Kafka data onto Redpanda.
 
 ### High level overview
@@ -31,7 +31,7 @@ docker-compose up -d
 
 This starts the containers needed for Redpanda and Deephaven.
 
-To start listening to the Kafka topic docker-stats, navigate to [http://localhost:10000/ide](http://localhost:10000/ide/) and enter:
+To start listening to the Kafka topic `docker-stats`, navigate to [http://localhost:10000/ide](http://localhost:10000/ide/) and enter:
 
 
 ```python
