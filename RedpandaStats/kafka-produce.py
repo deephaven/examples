@@ -60,6 +60,7 @@ while True:
             "networkOutput": int(float(re.findall('\d*\.?\d+',args[9])[0])*float(convertUnit(args[9][len(re.findall('\d*\.?\d+',args[9])[0]):]))),
             "blockInput": int(float(re.findall('\d*\.?\d+',args[10])[0])*float(convertUnit(args[10][len(re.findall('\d*\.?\d+',args[10])[0]):]))),
             "blockOutput": int(float(re.findall('\d*\.?\d+',args[12])[0])*float(convertUnit(args[12][len(re.findall('\d*\.?\d+',args[12])[0]):]))),
+
             "pids": re.findall('\d*\.?\d+',args[13])[0]
             }
 
