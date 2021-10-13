@@ -31,6 +31,22 @@ producer = Producer({
     'bootstrap.servers': 'localhost:9092',
 })
 
+def convert_unit(input_Unit):
+    if input_Unit ==  'GiB': return 1073741824
+    if input_Unit ==  'MiB': return 1048576
+    if input_Unit ==  'kiB': return 1024
+    if input_Unit ==  'GB': return 1000000000
+    if input_Unit ==  'MB': return 1000000
+    if input_Unit ==  'kB': return 1000
+    else: return 1
+
+
+def get_raw(value_with_unit_str):
+  value_str = re.findall('\d*\.?\d+',value_with_unit_str)[0]
+  unit_str = value_with_unit_str[len(value_str):]
+  return int(float(value_str) * float(convert_unit(unit_str)))
+
+
 while True:
     data = subprocess.check_output("docker stats --no-stream", shell=True).decode('utf8')
 
@@ -44,13 +60,13 @@ while True:
             "container": args[0],
             "name": args[1],
             "cpuPercent": re.findall('\d*\.?\d+',args[2])[0],
-            "memoryUsage": args[3],
-            "memoryLimit": args[5],
+            "memoryUsage": get_raw(args[3]),
+            "memoryLimit": get_raw(args[5]),
             "memoryPercent": re.findall('\d*\.?\d+',args[6])[0],
-            "networkInput": args[7],
-            "networkOutput": args[9],
-            "blockInput": args[10],
-            "blockOutput": args[12],
+            "networkInput": get_raw(args[7]),
+            "networkOutput": get_raw(args[9]),
+            "blockInput": get_raw(args[10]),
+            "blockOutput": get_raw(args[12]),
             "pids": re.findall('\d*\.?\d+',args[13])[0]
             }
 
