@@ -1,6 +1,6 @@
 # BTC and ETH sample data
 
-This folder contains sample data files for Bitcoin and Ethereum in CSV and Parquet format on different days.
+This folder contains sample data files for Bitcoin and Ethereum in CSV and Parquet format on different days taken from [CoinGecko](https://www.coingecko.com/).
 
 ## Table of contents
 

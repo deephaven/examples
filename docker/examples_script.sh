@@ -10,7 +10,7 @@ function usage()
   printf "    commands are:\n"
   printf "        download [<version>] - downloads and mounts all example data\n" >&2
   printf "                               gets latest version, unless <version> supplied\n" >&2
-  printf "        initiailze - download current example data if not already available\n" >&2
+  printf "        initialize - download current example data if not already available\n" >&2
   printf "        remove - removes all example data\n" >&2
   printf "        version - shows current the version\n" >&2
   printf "        versions - list available versions\n" >&2
