@@ -1,0 +1,14 @@
+groups:
+- name: AllInstances
+  rules:
+  - alert: InstanceTooMuchMemory
+    # Condition for alerting
+    expr: go_memstats_alloc_bytes > 30000000
+    for: 1s
+    # Annotation - additional informational labels to store more information
+    annotations:
+      title: 'Instance {{ $labels.instance }} using too much memory'
+      description: '{{ $labels.instance }} of job {{ $labels.job }} has been above the memory threshold for more than 5 seconds.'
+    # Labels - additional labels to be attached to the alert
+    labels:
+      severity: 'critical'
