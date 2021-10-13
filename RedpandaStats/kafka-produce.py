@@ -31,6 +31,15 @@ producer = Producer({
     'bootstrap.servers': 'localhost:9092',
 })
 
+def convertUnit(inputUnit):
+    if inputUnit ==  'GiB': return 1073741824
+    if inputUnit ==  'MiB': return 1048576
+    if inputUnit ==  'kiB': return 1024
+    if inputUnit ==  'GB': return 1000000000
+    if inputUnit ==  'MB': return 1000000
+    if inputUnit ==  'kB': return 1000
+    else: return 1
+
 while True:
     data = subprocess.check_output("docker stats --no-stream", shell=True).decode('utf8')
 
@@ -44,13 +53,13 @@ while True:
             "container": args[0],
             "name": args[1],
             "cpuPercent": re.findall('\d*\.?\d+',args[2])[0],
-            "memoryUsage": args[3],
-            "memoryLimit": args[5],
+            "memoryUsage": int(float(re.findall('\d*\.?\d+',args[3])[0])*float(convertUnit(args[3][len(re.findall('\d*\.?\d+',args[3])[0]):]))),
+            "memoryLimit": int(float(re.findall('\d*\.?\d+',args[5])[0])*float(convertUnit(args[5][len(re.findall('\d*\.?\d+',args[5])[0]):]))),
             "memoryPercent": re.findall('\d*\.?\d+',args[6])[0],
-            "networkInput": args[7],
-            "networkOutput": args[9],
-            "blockInput": args[10],
-            "blockOutput": args[12],
+            "networkInput": int(float(re.findall('\d*\.?\d+',args[7])[0])*float(convertUnit(args[7][len(re.findall('\d*\.?\d+',args[7])[0]):]))),
+            "networkOutput": int(float(re.findall('\d*\.?\d+',args[9])[0])*float(convertUnit(args[9][len(re.findall('\d*\.?\d+',args[9])[0]):]))),
+            "blockInput": int(float(re.findall('\d*\.?\d+',args[10])[0])*float(convertUnit(args[10][len(re.findall('\d*\.?\d+',args[10])[0]):]))),
+            "blockOutput": int(float(re.findall('\d*\.?\d+',args[12])[0])*float(convertUnit(args[12][len(re.findall('\d*\.?\d+',args[12])[0]):]))),
             "pids": re.findall('\d*\.?\d+',args[13])[0]
             }
 
