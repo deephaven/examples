@@ -42,13 +42,13 @@ result= kt.consumeToTable({'bootstrap.servers': 'redpanda:29092'} , 'docker-stat
     ('container', dht.string),
     ('name',   dht.string),
     ('cpuPercent',  dht.double),
-    ('memoryUsage',   dht.string),
-    ('memoryLimit', dht.string),
+    ('memoryUsage',   dht.int64),
+    ('memoryLimit', dht.int64),
     ('memoryPercent',   dht.double),
-    ('networkInput',  dht.string),
-    ('networkOutput',    dht.string),
-    ('blockInput',  dht.string),
-    ('blockOutput',    dht.string),
+    ('networkInput',  dht.int64),
+    ('networkOutput',    dht.int64),
+    ('blockInput',  dht.int64),
+    ('blockOutput',    dht.int64),
     ('pids',    dht.int32)
     ]),table_type = 'append')
   ```
