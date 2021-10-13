@@ -9,6 +9,7 @@ This repository contains open source data sets.  They are intended to be used as
 
 The following folders can be found in this repository:
 
+- **[`CreditCardFraud`](./CreditCardFraud)** - Anonymized credit card purchase data, including fraudulent purchases.
 - **[`CryptoCurrency`](./CryptoCurrency)** - Script to pull live and historical data for specified cryptocurencies.
 - **[`CryptoCurrencyHistory`](./CryptoCurrencyHistory)** - Data from [CoinGecko](https://www.coingecko.com/) to highlight use of CSV and Parquet data formats.
 - **[`DeNiro`](./DeNiro)** - Data on Robert De Niro's movies up to 2016.
