@@ -25,19 +25,20 @@ Once data is collected in Kafka, [Deephaven consumes](https://deephaven.io/core/
 ### To run script
 
 
-In your 'RedpandaStats' directory bring up this version of the deployment:
+In your 'RedpandaStats' directory, bring up this version of the deployment:
 
 ```bash
 docker-compose up -d
 ```
 
-This starts the needed containers needed for RedPanda and Deephaven.
+This starts the containers needed for RedPanda and Deephaven.
 
-To start listening to the Kafka topic docker-stats, navigate to [http://localhost:10000/ide](http://localhost:10000/ide/) and enter:
+To start listening to the Kafka topic `docker-stats`, navigate to [http://localhost:10000/ide](http://localhost:10000/ide/) and enter:
 
 ```python
 from deephaven import KafkaTools as kt
 from deephaven import Types as dht
+
 result= kt.consumeToTable({'bootstrap.servers': 'redpanda:29092'} , 'docker-stats', key=kt.IGNORE, value=kt.json([
     ('container', dht.string),
     ('name',   dht.string),
@@ -53,7 +54,7 @@ result= kt.consumeToTable({'bootstrap.servers': 'redpanda:29092'} , 'docker-stat
     ]),table_type = 'append')
   ```
 
-  In your terminal to produce the kafka stream execute the kafka-produce.py script:
+  To produce the Kafka stream, execute the `kafka-produce.py` script in your terminal:
 
   ```bash
   python3 ./kafka-produce.py
