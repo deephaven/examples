@@ -31,13 +31,13 @@ producer = Producer({
     'bootstrap.servers': 'localhost:9092',
 })
 
-def convert_unit(inputUnit):
-    if inputUnit ==  'GiB': return 1073741824
-    if inputUnit ==  'MiB': return 1048576
-    if inputUnit ==  'kiB': return 1024
-    if inputUnit ==  'GB': return 1000000000
-    if inputUnit ==  'MB': return 1000000
-    if inputUnit ==  'kB': return 1000
+def convert_unit(input_Unit):
+    if input_Unit ==  'GiB': return 1073741824
+    if input_Unit ==  'MiB': return 1048576
+    if input_Unit ==  'kiB': return 1024
+    if input_Unit ==  'GB': return 1000000000
+    if input_Unit ==  'MB': return 1000000
+    if input_Unit ==  'kB': return 1000
     else: return 1
 
 
