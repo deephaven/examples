@@ -1,2 +1,2 @@
-docker build --tag crypto-deephaven/grpc-api .
+docker build --tag deephaven-examples/coingecko-grpc-api .
 docker-compose up
