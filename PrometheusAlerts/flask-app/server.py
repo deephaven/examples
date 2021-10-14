@@ -1,8 +1,26 @@
 from flask import Flask, request
 from pydeephaven import Session
 
+import time
+import sys
+
 app = Flask(__name__)
-session = Session()
+session = None
+
+#Simple retry loop in case the server tries to launch before Deephaven is ready
+count = 0
+max_count = 5
+while (count < max_count):
+    try:
+        session = Session()
+        count = max_count
+    except:
+        print("Failed to connect to Deephaven... Waiting to try again")
+        time.sleep(2)
+        count += 1
+
+if session is None:
+    sys.exit("Failed to connect to Deephaven after 5 attempts")
 
 #Initializes the Deephaven server with the table and an update method
 init = """
