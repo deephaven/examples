@@ -9,9 +9,10 @@ This app runs a [Python Flask server](https://flask.palletsprojects.com/en/2.0.x
 ### Components
 
 * `alertmanager/config.yml` - The Prometheus alerts rules. This includes the configuration for the webhook alerts destination URL.
-* `docker-compose.yml` - Docker compose file that defines both the needed Deephaven and Prometheus docker images.
+* `docker-compose.yml` - Docker compose file that defines the Deephaven, Prometheus, and Python docker images.
 * `flask-app/requirements.txt` - Python dependencies for the application.
 * `flask-app/server.py` - The python server that accepts the Prometheus alert webhooks.
+* `flask-app/Dockerfile` - The Dockerfile for the python server.
 * `prometheus/prometheus.yml` - The Prometheus config file. This has been thinned down to handle just the alerts.
 * `prometheus/rules.yml` - The Prometheus alert rules file. This includes the configuration for what triggers alerts.
 * `start.sh` - Helper script that launches the application.
