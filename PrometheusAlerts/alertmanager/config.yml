@@ -12,6 +12,6 @@ receivers:
   - send_resolved: true
     http_config:
       follow_redirects: true
-    url: http://7e6e-2603-6081-2300-1ee0-19e5-89f3-f316-8d4a.ngrok.io
+    url: http://flask-app:5000
     max_alerts: 0
 templates: []

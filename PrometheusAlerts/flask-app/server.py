@@ -12,7 +12,7 @@ count = 0
 max_count = 5
 while (count < max_count):
     try:
-        session = Session()
+        session = Session(host="envoy") #"envoy" is the host within the docker application
         count = max_count
     except:
         print("Failed to connect to Deephaven... Waiting to try again")
@@ -22,7 +22,8 @@ while (count < max_count):
 if session is None:
     sys.exit("Failed to connect to Deephaven after 5 attempts")
 
-#Initializes the Deephaven server with the table and an update method
+#Initializes Deephaven with the table and an update method.
+#The session.run_script() method is used to execute Python code in Deephaven.
 init = """
 from deephaven import DynamicTableWriter
 from deephaven.DBTimeUtils import convertDateTime
@@ -38,24 +39,23 @@ def update_alerts_table(date_time_string, job, instance, alert_identifier, statu
     date_time = convertDateTime(date_time_string)    
     table_writer.logRow(date_time, job, instance, alert_identifier, status)
 """
+session.run_script(init)
 
-#Triggers the table update
+#Template to trigger the table update
 update_template = """
 update_alerts_table("{date_time_string}", "{job}", "{instance}", "{alert_identifier}", "{status}")
 """
 
-session.run_script(init)
-
 @app.route('/', methods=['POST'])
 def receive_alert():
     request_json = request.json
-    print(request_json)
     date_time_string = None
     job = None
     instance = None
     alert_identifier = None
     status = None
 
+    #For every alert, build the method call to update the alerts table
     for alert in request_json["alerts"]:
         status = alert["status"]
         #Dates come in the format yyyy-mm-ddThh:mm:ss.sssZ, we need to
@@ -68,6 +68,7 @@ def receive_alert():
         instance = alert["labels"]["instance"]
         alert_identifier = alert["labels"]["alertname"]
 
+        #Executes the alert table update in Deephaven
         session.run_script(update_template.format(date_time_string=date_time_string, job=job, instance=instance,
                 alert_identifier=alert_identifier, status=status))
     return "Request received"

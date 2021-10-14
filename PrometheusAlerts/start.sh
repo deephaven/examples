@@ -1,2 +1,2 @@
-docker-compose up -d
-python flask-app/server.py
+docker build --tag flask/prometheus-webhook-alerts flask-app
+docker-compose up

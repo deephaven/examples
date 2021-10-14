@@ -40,7 +40,7 @@ services:
   alertmanager:
     image: prom/alertmanager:latest
     ports:
-      - 9093:9093
+      - "9093:9093"
     volumes:
       - ./alertmanager/:/etc/alertmanager/
     command:
@@ -56,6 +56,11 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - "9090:9090"
+
+  flask-app:
+    image: flask/prometheus-webhook-alerts:latest
+    ports:
+      - "5000:5000"
 
 volumes:
     web-tmp:
