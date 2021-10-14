@@ -59,7 +59,6 @@ The python script uses [confluent_kafka](https://docs.confluent.io/).  To run th
 pip install confluent_kafka
 ```
 
-
 To produce the Kafka stream, execute the `kafka-produce.py` script in your terminal:
 
   ```bash
