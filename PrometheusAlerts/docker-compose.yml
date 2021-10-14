@@ -37,18 +37,6 @@ services:
     ports:
       - "10000:10000"
 
-#  node_exporter:
-#    image: quay.io/prometheus/node-exporter:latest
-#    container_name: node_exporter
-#    command:
-#      - '--path.rootfs=/host'
-#    pid: host
-#    restart: unless-stopped
-#    volumes:
-#      - '/:/host:ro'
-#    ports:
-#      - 9100:9100
-
   alertmanager:
     image: prom/alertmanager:latest
     ports:
