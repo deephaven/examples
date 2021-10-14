@@ -53,12 +53,11 @@ result= kt.consumeToTable({'bootstrap.servers': 'redpanda:29092'} , 'docker-stat
     ]),table_type = 'append')
   ```
 
-The python script uses [confluent_kafka](https://docs.confluent.io/).  To run this python script you will need to make sure you have this installed on your machine. To install run:
+The Python script uses [confluent_kafka](https://docs.confluent.io/) and you must have this installed on your machine. To install, run:
 
 ```bash
 pip install confluent_kafka
 ```
-
 
 To produce the Kafka stream, execute the `kafka-produce.py` script in your terminal:
 
