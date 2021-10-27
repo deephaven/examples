@@ -27,8 +27,6 @@ compose_file=https://raw.githubusercontent.com/deephaven/deephaven-core/main/con
 curl  -O "${compose_file}"
 docker-compose pull
 docker-compose up -d
-
-
 ```
 
 For Groovy:
@@ -42,9 +40,7 @@ docker-compose up -d
 ```
 
 
-Navigate to [http://localhost:10000/ide/](http://localhost:10000/ide/) to see the Deephaven IDE.
-
-Open some tables:
+Navigate to [http://localhost:10000/ide/](http://localhost:10000/ide/), then use the script below to open some tables in the Deephaven IDE.
 
 ```python
 from deephaven.TableTools import readCsv
@@ -67,7 +63,7 @@ number_bones = noodle_pug.countBy("Number","noodles_status")
 ```
 
 
-You will see three Deephaven tables populate the IDE. Does Noodle have more "No Bone" days on Monday?
+Three Deephaven tables populate the IDE. Does Noodle have more "No Bone" days on Monday?
 
 
 # Source and License
