@@ -19,7 +19,7 @@ We want to know, does Noodle normally have a [case of the Mondays](https://www.y
 [Launch Deephaven](https://deephaven.io/core/docs/tutorials/quickstart/) with examples.
 
 
-For PythonL
+For Python:
 ```bash
 # Choose your compose file selected above.
 compose_file=https://raw.githubusercontent.com/deephaven/deephaven-core/main/containers/python-examples/docker-compose.yml
@@ -40,7 +40,7 @@ docker-compose up -d
 ```
 
 
-Navigate to [http://localhost:10000/ide/](http://localhost:10000/ide/) to see the interactive Deephaven IDE
+Navigate to [http://localhost:10000/ide/](http://localhost:10000/ide/) to see the Deephaven IDE.
 
 
 ```python
