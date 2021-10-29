@@ -45,21 +45,24 @@ Navigate to [http://localhost:10000/ide/](http://localhost:10000/ide/), then use
 ```python
 from deephaven.TableTools import readCsv
 
-noodle_pug = readCsv("/data/examples/NoodlePug/noodle_pug.csv")
+noodle_pug = readCsv("https://media.githubusercontent.com/media/deephaven/examples/4f15c29972ae216b5bd8077b5e3dc57351eccb27/NoodlePug/noodle_pug.csv")
 
-number_per_day = noodle_pug.countBy("Number","Day")
+number_bones = noodle_pug.dropColumns("Date", "Day_of_Week", "Weather_NYC").sumBy()
 
-number_bones = noodle_pug.countBy("Number","noodles_status")
+number_per_day = noodle_pug.countBy("Number", "Day_of_Week")
+
+number_per_weather = noodle_pug.dropColumns("Date", "Day_of_Week").sumBy("Weather_NYC")
 ```
 
 
 ```groovy
+noodle_pug = readCsv("https://media.githubusercontent.com/media/deephaven/examples/4f15c29972ae216b5bd8077b5e3dc57351eccb27/NoodlePug/noodle_pug.csv")
 
-noodle_pug = readCsv("/data/examples/NoodlePug/noodle_pug.csv")
+number_bones = noodle_pug.dropColumns("Date", "Day_of_Week", "Weather_NYC").sumBy()
 
-number_per_day = noodle_pug.countBy("Number","Day")
+number_per_day = noodle_pug.countBy("Number", "Day_of_Week")
 
-number_bones = noodle_pug.countBy("Number","noodles_status")
+number_per_weather = noodle_pug.dropColumns("Date", "Day_of_Week").sumBy("Weather_NYC")
 ```
 
 
