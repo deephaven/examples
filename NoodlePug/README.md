@@ -45,7 +45,7 @@ Navigate to [http://localhost:10000/ide/](http://localhost:10000/ide/), then use
 ```python
 from deephaven.TableTools import readCsv
 
-noodle_pug = readCsv("/data/noodlepug.csv")
+noodle_pug = readCsv("/data/examples/NoodlePug/noodle_pug.csv")
 
 number_per_day = noodle_pug.countBy("Number","Day")
 
@@ -55,7 +55,7 @@ number_bones = noodle_pug.countBy("Number","noodles_status")
 
 ```groovy
 
-noodle_pug = readCsv("/data/noodlepug.csv")
+noodle_pug = readCsv("/data/examples/NoodlePug/noodle_pug.csv")
 
 number_per_day = noodle_pug.countBy("Number","Day")
 
