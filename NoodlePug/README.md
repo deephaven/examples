@@ -10,9 +10,10 @@ Here we want to find out, does Noodle normally have a [case of the Mondays](http
 ## Fields in each file
 
 - `Date`: The day the TikTok video was posted.
-- `noodles_status`: The Bones/No Bones status of Noodle; if not stated, status is inferred.
-- `Day`: The day of the week the observation occurred.
-
+- `Bones`: Value of 1 for a `Bones day`, 0 for `No Bones day`.
+- `No_Bones`: Value of 0 for a `Bones day`, 1 for `No Bones day`.
+- `Day_of_Week`: The day of the week the observation occurred.
+- `Weather_NYC`: The weather in NYC that day.
 
 # How to use the data
 
@@ -45,21 +46,26 @@ Navigate to [http://localhost:10000/ide/](http://localhost:10000/ide/), then use
 ```python
 from deephaven.TableTools import readCsv
 
-noodle_pug = readCsv("/data/noodlepug.csv")
+noodle_pug = readCsv("https://media.githubusercontent.com/media/deephaven/examples/main/NoodlePug/noodle_pug.csv")
 
-number_per_day = noodle_pug.countBy("Number","Day")
+number_per_day = noodle_pug.countBy("Number", "Day_of_Week")
 
-number_bones = noodle_pug.countBy("Number","noodles_status")
+number_bones = noodle_pug.dropColumns("Date","Day_of_Week","Weather_NYC").sumBy()
+
+number_per_weather = noodle_pug.dropColumns("Date","Day_of_Week").sumBy("Weather_NYC")
+
 ```
 
 
 ```groovy
 
-noodle_pug = readCsv("/data/noodlepug.csv")
+noodle_pug = readCsv("https://media.githubusercontent.com/media/deephaven/examples/main/NoodlePug/noodle_pug.csv")
 
-number_per_day = noodle_pug.countBy("Number","Day")
+number_per_day = noodle_pug.countBy("Number", "Day_of_Week")
 
-number_bones = noodle_pug.countBy("Number","noodles_status")
+number_bones = noodle_pug.dropColumns("Date","Day_of_Week","Weather_NYC").sumBy()
+
+number_per_weather = noodle_pug.dropColumns("Date","Day_of_Week").sumBy("Weather_NYC")
 ```
 
 
