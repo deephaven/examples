@@ -49,7 +49,7 @@ noodle_pug = readCsv("https://media.githubusercontent.com/media/deephaven/exampl
 
 number_bones = noodle_pug.dropColumns("Date", "Day_of_Week", "Weather_NYC").sumBy()
 
-number_per_day = noodle_pug.countBy("Number", "Day_of_Week")
+number_per_day = noodle_pug.dropColumns("Date","Weather_NYC").sumBy("Day_of_Week")
 
 number_per_weather = noodle_pug.dropColumns("Date", "Day_of_Week").sumBy("Weather_NYC")
 ```
@@ -60,7 +60,7 @@ noodle_pug = readCsv("https://media.githubusercontent.com/media/deephaven/exampl
 
 number_bones = noodle_pug.dropColumns("Date", "Day_of_Week", "Weather_NYC").sumBy()
 
-number_per_day = noodle_pug.countBy("Number", "Day_of_Week")
+number_per_day = noodle_pug.dropColumns("Date","Weather_NYC").sumBy("Day_of_Week")
 
 number_per_weather = noodle_pug.dropColumns("Date", "Day_of_Week").sumBy("Weather_NYC")
 ```
