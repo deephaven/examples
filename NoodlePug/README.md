@@ -71,9 +71,11 @@ Three Deephaven tables populate the IDE. Does Noodle have more "No Bone" days on
 
 # Planet data
 
-As an intersting use case, we wanted to see if the seperation of Mercury and Jupiter is what causes Noodles to have no-bone days.
+As an interesting use case, we wanted to see if the separation of Mercury and Jupiter is what causes Noodles to have No Bones days.
 
-So we have a function that does a calculation to find the seperation of the two planets and then we see how this correlates ith bone and no-bone days.  We see that for  bone days we are accurate 66% of the time, not bad but for no-bone days we are accurate with this model 80% of the time! So we look at the week ahead and give our predictions. Now the question is what really causes no-bone days? We are thinking it is a complex mixture of all these models.
+Here, we have a function that does a calculation to find the separation of the two planets and then we see how this correlates with Bones and No Bones days.  We see that for Bone days, we are accurate 66% of the time - not bad! But for No Bones days, we are accurate with this model 80% of the time! 
+
+We look at the week ahead and give our predictions. Now the question is, what really causes No Bones days? We think it is a complex mixture of all these models.
 
 ```python
 os.system("pip install ephem")
