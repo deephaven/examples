@@ -69,6 +69,37 @@ number_per_weather = noodle_pug.dropColumns("Date", "Day_of_Week").sumBy("Weathe
 Three Deephaven tables populate the IDE. Does Noodle have more "No Bone" days on Monday?
 
 
+# Planet data
+
+As an intersting use case, we wanted to see if the seperation of Mercury and Jupiter is what causes Noodles to have no-bone days.
+
+So we have a function that does a calculation to find the seperation of the two planets and then we see how this correlates ith bone and no-bone days.  We see that for  bone days we are accurate 66% of the time, not bad but for no-bone days we are accurate with this model 80% of the time! So we look at the week ahead and give our predictions. Now the question is what really causes no-bone days? We are thinking it is a complex mixture of all these models.
+
+```python
+os.system("pip install ephem")
+
+import ephem
+
+def sep(date):
+    m = ephem.Mercury()
+    j = ephem.Jupiter()
+    m.compute(date)
+    j.compute(date)
+    return (int)(10*ephem.separation(m, j))
+
+planet = noodle_pug.update("Mercury_Jupiter_sep = (int)sep(Date)","Prediction = (Mercury_Jupiter_sep <= 13) ? `no Bones` : `Bones`")
+
+planet_no_bones = planet.where("Prediction.startsWith(`no`)").dropColumns("Date", "Day_of_Week", "Weather_NYC","Mercury_Jupiter_sep", "Prediction").sumBy()
+
+planet_bones = planet.where("Prediction.startsWith(`Bone`)").dropColumns("Date", "Day_of_Week", "Weather_NYC","Mercury_Jupiter_sep", "Prediction").sumBy()
+
+from deephaven.TableTools import newTable, stringCol
+
+future = newTable(
+    stringCol("Date", "11/1/2021", "11/2/2021", "11/3/2021", "11/4/2021", "11/5/2021"))\
+    .update("Prediction = ((int)sep(Date)<=13) ? `no Bones` : `Bones`")
+```
+
 # Source and License
 
 This data was built from viewing TikToks created by [@jongraz](https://www.tiktok.com/@jongraz?refer=embed).  It is provided here for demonstrative use without any warranty as to the accuracy, reliability, or completeness of the data.
