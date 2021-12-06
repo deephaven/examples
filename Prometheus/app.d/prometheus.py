@@ -14,7 +14,7 @@ One will be a static table and the other will be continually updating with real 
 """
 from deephaven.TableTools import newTable, stringCol, dateTimeCol, doubleCol
 from deephaven import DynamicTableWriter
-from deephaven.DBTimeUtils import millisToTime
+from deephaven.DateTimeUtils import millisToTime
 import deephaven.Types as dht
 from typing import Callable
 

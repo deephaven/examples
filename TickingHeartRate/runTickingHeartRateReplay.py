@@ -1,34 +1,35 @@
-from deephaven.TableTools import readHeaderlessCsv
+from deephaven import csv
 from deephaven import DynamicTableWriter, Types as dht
-from deephaven import DBTimeUtils
-from deephaven.DBTimeUtils import autoEpochToTime
+from deephaven import DateTimeUtils
 import pathlib
 import time
 import threading
 
+import sys
+
 # Max number of csv files to pull in
-csvFiles=500
+csv_files=500
 
 # Setup deephaven tables to hold Heart Rate results
-columnNames = ["Timestamp", "Heart Rate"]
-columnTypes = [dht.datetime, dht.int_]
-hrTableWriter = DynamicTableWriter(columnNames, columnTypes)
-heartRateData = hrTableWriter.getTable()
+column_names = ["Timestamp", "Heart Rate"]
+column_types = [dht.datetime, dht.int_]
+hr_table_writer = DynamicTableWriter(column_names, column_types)
+heart_rate_data = hr_table_writer.getTable()
 
 # Function to log data to the dynamic table
 def thread_func():
-    for x in range(1,csvFiles):
-        nextFile=("/data/csv/%d.csv" % x)
-        print(nextFile)
-        path = pathlib.Path(nextFile)
+    for x in range(1, csv_files):
+        next_file = ("/data/examples/TickingHeartRate/csv/%d.csv" % x)
+        print(next_file)
+        path = pathlib.Path(next_file)
         if path.exists() and path.is_file():
-            nextHR=readHeaderlessCsv(nextFile).update("Timestamp=Column1", "Heart_rate=Column2").select("Timestamp", "Heart_rate")
-            nextRecord=nextHR.getRecord(0, "Timestamp", "Heart_rate")
-            timestamp=DBTimeUtils.autoEpochToTime(nextRecord[0])
-            hrTableWriter.logRow(timestamp, int(nextRecord[1]))
+            next_hr = csv.read(next_file, headless = True).update("Timestamp=Column1", "Heart_rate=Column2").select("Timestamp", "Heart_rate")
+            next_record = next_hr.getRecord(0, "Timestamp", "Heart_rate")
+            timestamp = next_record[0]
+            hr_table_writer.logRow(timestamp, int(next_record[1]))
             time.sleep(1)
         else:
-            print("File does not exist: " + nextFile)
+            print("File does not exist: " + next_file)
 
 # Thread to log data to the dynamic table
 thread = threading.Thread(target = thread_func)
