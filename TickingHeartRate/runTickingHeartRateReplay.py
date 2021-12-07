@@ -8,8 +8,8 @@ import threading
 # Max number of csv files to pull in
 csv_files=500
 
-# Setup deephaven tables to hold Heart Rate results
-column_names = ["Timestamp", "Heart Rate"]
+# Setup deephaven tables to hold Heart_rate results
+column_names = ["Timestamp", "Heart_rate"]
 column_types = [dht.datetime, dht.int_]
 hr_table_writer = DynamicTableWriter(column_names, column_types)
 heart_rate_data = hr_table_writer.getTable()
