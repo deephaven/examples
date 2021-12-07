@@ -1,11 +1,9 @@
-from deephaven import csv
+from deephaven import read_csv
 from deephaven import DynamicTableWriter, Types as dht
 from deephaven import DateTimeUtils
 import pathlib
 import time
 import threading
-
-import sys
 
 # Max number of csv files to pull in
 csv_files=500
@@ -23,7 +21,7 @@ def thread_func():
         print(next_file)
         path = pathlib.Path(next_file)
         if path.exists() and path.is_file():
-            next_hr = csv.read(next_file, headless = True).update("Timestamp=Column1", "Heart_rate=Column2").select("Timestamp", "Heart_rate")
+            next_hr = read_csv(next_file, headless = True).update("Timestamp=Column1", "Heart_rate=Column2").select("Timestamp", "Heart_rate")
             next_record = next_hr.getRecord(0, "Timestamp", "Heart_rate")
             timestamp = next_record[0]
             hr_table_writer.logRow(timestamp, int(next_record[1]))
