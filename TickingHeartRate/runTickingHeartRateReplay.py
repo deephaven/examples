@@ -22,7 +22,7 @@ def thread_func():
         path = pathlib.Path(next_file)
         if path.exists() and path.is_file():
             next_hr = read_csv(next_file, headless = True).view("Timestamp=Column1", "HeartRate=Column2")
-            next_record = next_hr.getRecord(0, "Timestamp", "Heart_rate")
+            next_record = next_hr.getRecord(0, "Timestamp", "HeartRate")
             timestamp = next_record[0]
             hr_table_writer.logRow(timestamp, int(next_record[1]))
             time.sleep(1)

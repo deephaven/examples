@@ -17,12 +17,12 @@ print("Number of data points: {}".format(len(records)))
 
 # Setup deephaven tables to hold results
 # Heart rate
-column_names = ["Timestamp", "Heart Rate"]
+column_names = ["Timestamp", "HeartRate"]
 column_types = [dht.datetime, dht.int_]
 hr_table_writer = DynamicTableWriter(column_names, column_types)
-heart_rate_data = hrTableWriter.getTable()
+heart_rate_data = hr_table_writer.getTable()
 # Gps data
-column_names = ["Timestamp", "Enhanced Altitude m", "Enhanced Speed m/s", "GPPS Accuracy m", "Position lat semicircles", "Position long semicircles", "Speed m/s"]
+column_names = ["Timestamp", "EnhancedAltitude", "EnhancedSpeed", "GPSAccuracy", "PositionLat", "PositionLong", "Speed"]
 column_types = [dht.datetime, dht.double, dht.double, dht.int_, dht.int_, dht.int_, dht.double]
 gps_table_writer = DynamicTableWriter(column_names, column_types)
 gps_data = gps_table_writer.getTable()
