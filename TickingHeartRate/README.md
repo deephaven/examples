@@ -1,4 +1,4 @@
-Heart_rateHeart_rate# Ticking Heart Rate in Deephaven
+# Ticking Heart Rate in Deephaven
 
 Self-contained example code and data to simulate a live feed of heart rate data being entered.
 

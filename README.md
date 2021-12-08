@@ -24,7 +24,7 @@ The following folders can be found in this repository:
 - **[`Taxi`](./Taxi)** - Yellow Taxi trip records.
 - **[`TensorFlow`](./TensorFlow)** - Statistically calculate positive/negative sentiment using machine-learning
   training mechanisms based on an RSS feed from Seeking Alpha.
-- **[`TickingHeartRate`](./TickingHeartRate)** - Simulated ticking Heart_rate data.
+- **[`TickingHeartRate`](./TickingHeartRate)** - Simulated ticking heart rate data.
 
 ## Description
 

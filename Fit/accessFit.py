@@ -1,4 +1,4 @@
-Heart_rateHeart_rateHeart_ratefrom deephaven import DynamicTableWriter, Types as dht
+from deephaven import DynamicTableWriter, Types as dht
 from deephaven.DateTimeUtils import convertDateTime
 # Ensure fitparse is installed.
 import os

@@ -1,4 +1,4 @@
-Heart_rateHeart_rate# Fit file as available from Strava
+# Fit file as available from Strava
 
 Pull your own data from your [Strava](https://www.strava.com/) account. Visualize, manipulate, and combine your data with other sources, all while maintaining full ownership and control of the data in your own environment.
 
