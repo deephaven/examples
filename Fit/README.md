@@ -23,16 +23,16 @@ These steps can be run with our example data or your own.
    Add another directory level if desired to keep various projects segmented.
 1. Ensure fitparse is setup (see [below](#using-fitparse-module)).
 1. Run the `accessFit.py` file in a Deephaven console.
-1. The `heartRateData` table should appear.
+1. The `heart_rate_data` table should appear.
 
-   ![Heart rate table](heartRateTable.png "Heart rate table")
-1. Click the **Table Options** menu in the `heartRateData` tab.
+   ![heart_rate_data](heartRateTable.png "heart_rate_data")
+1. Click the **Table Options** menu in the `heart_rate_data` tab.
 1. Select **Chart Builder**.
-1. Select defaults: `Line`, `X-Axis=Timestamp`, `Series=Heart Rate`
+1. Select defaults: `Line`, `X-Axis=Timestamp`, `Series=HeartRate`
 1. Press **Create** (note: you may need to scroll to see the button.)
 1. A chart should appear:
 
-   ![Heart rate chart](heartRateChart.png "Heart rate chart")
+   ![heart_rate_data](heartRateChart.png "heart_rate_data")
 
 ## Using fitparse module
 

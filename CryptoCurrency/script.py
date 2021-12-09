@@ -1,9 +1,11 @@
 import os
-os.system("pip install pycoingecko")
+try:
+    from pycoingecko import CoinGeckoAPI
+except ImportError:
+    os.system("pip install pycoingecko")
+    from pycoingecko import CoinGeckoAPI
 
-from pycoingecko import CoinGeckoAPI
-
-from deephaven.DBTimeUtils import secondsToTime, millisToTime
+from deephaven.DateTimeUtils import secondsToTime, millisToTime
 from deephaven.TableTools import merge
 from deephaven import DynamicTableWriter
 import deephaven.Types as dht
