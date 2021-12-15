@@ -1,6 +1,24 @@
-# Getting Started with Create React App
+# Example Deephaven React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It is to provide an example React application connecting to Deephaven and displaying a table of data.
+
+## Getting Started
+
+1. **Start the server**: Following instructions on GitHub to run deephaven-core with python: https://github.com/deephaven/deephaven-core/#run-deephaven.
+2. **Install dependencies**: Run `npm install` to install all dependencies required.
+3. **Start the UI**: Run `npm start` to start up the UI. It should automatically open up at http://localhost:3000 and load up a table.
+
+## Advanced
+
+### Application Mode
+
+See the guide for how to set up core in Application Mode: https://deephaven.io/core/docs/how-to-guides/app-mode/
+
+Once Deephaven is running, you can open a table with a specific name by adding the query param `tableName`, e.g. http://localhost:3000/?tableName=world
+
+### Configuring Server Address
+
+By default, this project assumes you are hosting Deephaven with Python on the default port at http://localhost:10000. If Deephaven is running on a different port/server, update the `REACT_APP_CORE_API_URL` environment variable to point to the correct server. See [.env](./.env) file for the default definition, and [create-react-app docs](https://create-react-app.dev/docs/adding-custom-environment-variables/) for other ways to set this environment variable.
 
 ## Available Scripts
 
