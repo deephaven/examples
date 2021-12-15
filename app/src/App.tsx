@@ -11,6 +11,7 @@ import {
 import dh from "@deephaven/jsapi-shim";
 
 import "./App.scss";
+import { LoadingOverlay } from "@deephaven/components";
 
 /**
  * A simple React App that displays a Deephaven table in an IrisGrid using the @deephaven/iris-grid package.
@@ -21,6 +22,7 @@ import "./App.scss";
 function App() {
   const [model, setModel] = useState<IrisGridModel>();
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const initApp = useCallback(async () => {
     try {
@@ -83,18 +85,25 @@ function App() {
     } catch (err) {
       setMessage(`Error: ${err}`);
     }
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {
     initApp();
   }, [initApp]);
 
-  const isLoaded = model != null;
+  const isLoaded = !isLoading && model != null;
 
   return (
     <div className="App">
-      {!isLoaded && <div className="message">{message}</div>}
       {isLoaded && <IrisGrid model={model} />}
+      {!isLoaded && (
+        <LoadingOverlay
+          isLoaded={isLoaded}
+          isLoading={isLoading}
+          errorMessage={message}
+        />
+      )}
     </div>
   );
 }
