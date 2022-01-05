@@ -1,4 +1,4 @@
-read_csv# Bones / No Bones data
+# Bones / No Bones data
 
 This folder contains one CSV file with the [bones/no-bones status of Noodle the Pug](https://www.tiktok.com/@jongraz/video/7022251358833118469?refer=embed&is_copy_url=1&is_from_webapp=v1) from [@jongraz](https://www.tiktok.com/@jongraz?refer=embed).
 Here we want to find out, does Noodle normally have a [case of the Mondays](https://www.youtube.com/watch?v=2AB9zPfXqQQ)?
