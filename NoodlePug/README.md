@@ -1,4 +1,4 @@
-# Bones / No Bones data
+read_csv# Bones / No Bones data
 
 This folder contains one CSV file with the [bones/no-bones status of Noodle the Pug](https://www.tiktok.com/@jongraz/video/7022251358833118469?refer=embed&is_copy_url=1&is_from_webapp=v1) from [@jongraz](https://www.tiktok.com/@jongraz?refer=embed).
 Here we want to find out, does Noodle normally have a [case of the Mondays](https://www.youtube.com/watch?v=2AB9zPfXqQQ)?
@@ -43,9 +43,9 @@ docker-compose up -d
 Navigate to [http://localhost:10000/ide/](http://localhost:10000/ide/), then use the script below to open some tables in the Deephaven IDE.
 
 ```python
-from deephaven.TableTools import readCsv
+from deephaven.TableTools import read_csv
 
-noodle_pug = readCsv("https://media.githubusercontent.com/media/deephaven/examples/4f15c29972ae216b5bd8077b5e3dc57351eccb27/NoodlePug/noodle_pug.csv")
+noodle_pug = read_csv("https://media.githubusercontent.com/media/deephaven/examples/4f15c29972ae216b5bd8077b5e3dc57351eccb27/NoodlePug/noodle_pug.csv")
 
 number_bones = noodle_pug.dropColumns("Date", "Day_of_Week", "Weather_NYC").sumBy()
 
@@ -56,7 +56,7 @@ number_per_weather = noodle_pug.dropColumns("Date", "Day_of_Week").sumBy("Weathe
 
 
 ```groovy
-noodle_pug = readCsv("https://media.githubusercontent.com/media/deephaven/examples/4f15c29972ae216b5bd8077b5e3dc57351eccb27/NoodlePug/noodle_pug.csv")
+noodle_pug = read_csv("https://media.githubusercontent.com/media/deephaven/examples/4f15c29972ae216b5bd8077b5e3dc57351eccb27/NoodlePug/noodle_pug.csv")
 
 number_bones = noodle_pug.dropColumns("Date", "Day_of_Week", "Weather_NYC").sumBy()
 
