@@ -25,6 +25,7 @@ The following folders can be found in this repository:
 - **[`TensorFlow`](./TensorFlow)** - Statistically calculate positive/negative sentiment using machine-learning
   training mechanisms based on an RSS feed from Seeking Alpha.
 - **[`TickingHeartRate`](./TickingHeartRate)** - Simulated ticking heart rate data.
+- **[`Wordle`](./Wordle)** - Data from [Kaggle](https://www.kaggle.com/rtatman/english-word-frequency?select=unigram_freq.csv) to use to solve [WORDLE](https://www.powerlanguage.co.uk/wordle/) 
 
 ## Description
 
