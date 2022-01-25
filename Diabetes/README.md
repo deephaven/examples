@@ -6,7 +6,7 @@
 
 ## About the file
 
-The file contains the responses of Americans to a survey conducted annually by the CDC.  This file contains responses from 2015's survey on Diabetes.  This particular CSV file is a cleaned and consolidated version of the original survey results.
+The file contains the responses of Americans to a survey conducted annually by the CDC for the year 2015.  This particular CSV file is a cleaned and consolidated version of the original survey results pertaining to diabetes.
 
 This CSV file has 253,680 rows and 22 columns:
 
