@@ -8,10 +8,11 @@ elite_8_womens =['stanfordwbb', 'texaswbb', 'gamecockwbb', 'creightonwbb', 'ucon
 ```
 
 
-The `teams_grouped.csv` file contains aggregated data from `tweets.csv` .
+The `teams_grouped.csv` file contains aggregated data from `tweets.csv`.
 
 
 ## Fields in  `tweets.csv`##
+
 - **Text:** Contents of Tweet
 - **Compound:** Percent positive or negative sentiment of `Text`
 - **Negative:** Percent negative sentiment of `Text`
