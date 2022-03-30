@@ -16,6 +16,7 @@ The following folders can be found in this repository:
 - **[`Insurance`](./Insurance)** - A dataset of insurance charges given some indicators of patient health.
 - **[`Iris`](./Iris)** - The iris flower data set from Ronald Fisher's 1936 paper.
 - **[`MetricCentury`](./MetricCentury)** - Data recorded from a 100 km bike ride.
+- **[`NCAA`](./NCAA)** - Twitter data and sentiment for elite 8 men and women NCAA teams 7 days before March 30, 20212.
 - **[`NoodlePug`](./NoodlePug)** -Bones and no-bones data for Noodle the Pug through Oct 27, 2021.
 - **[`Pems`](./Pems)** - Traffic flow data collected near Davis, CA.
 - **[`Taxi`](./Taxi)** - Yellow Taxi trip records.
