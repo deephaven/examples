@@ -11,7 +11,7 @@ elite_8_womens =['stanfordwbb', 'texaswbb', 'gamecockwbb', 'creightonwbb', 'ucon
 The `teams_grouped.csv` file contains aggregated data from `tweets.csv`.
 
 
-## Fields in  `tweets.csv`##
+## Fields in  `tweets.csv`
 
 - **Text:** Contents of Tweet
 - **Compound:** Percent positive or negative sentiment of `Text`
@@ -26,7 +26,7 @@ The `teams_grouped.csv` file contains aggregated data from `tweets.csv`.
 - **Quote_count:** Number of quotes for that original tweet
 - **team:** First team mentioned in `Text`
 
-## Fields in  `teams_grouped.csv`##
+## Fields in  `teams_grouped.csv`
 
 - **team:** Groupped team 
 - **Avg_Pos:** Average percent positive sentiment of all `Text` values for that `team`
