@@ -20,6 +20,7 @@ The following folders can be found in this repository:
 - **[`NoodlePug`](./NoodlePug)** -Bones and no-bones data for Noodle the Pug through Oct 27, 2021.
 - **[`Pems`](./Pems)** - Traffic flow data collected near Davis, CA.
 - **[`Taxi`](./Taxi)** - Yellow Taxi trip records.
+- **[`Transactions`](./Transactions)** - Simulated transactions in parquet format from [Kaggle](https://www.kaggle.com/conorsully1/simulated-transactions)
 
 ## Description
 
