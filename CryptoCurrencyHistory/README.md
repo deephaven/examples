@@ -8,7 +8,8 @@ This folder contains sample data files for Bitcoin and Ethereum in CSV and Parqu
   - `crypto.csv`: Crypto data from Sept 6 - Sept 8, 2021.
   - `crypto_sept7.csv`: BTC and ETH data from Sept 7, 2021.
   - `crypto_sept8.csv`: BTC and ETH data from Sept 8, 2021.
-  - `CryptoTrades_20210922.csv: Crypto trade data from Sept 22, 2021.
+  - `CryptoTrades_20210922.csv`: Crypto trade data from Sept 22, 2021.
+  - `FakeCryptoTrades_20230209.csv`: Fake crypto trade data from Feb 9, 2023.
 - `Parquet`
   - `crypto.parquet`: Uncompressed Parquet crypto data from Sept 6 - Sept 8, 2021.
   - `crypto_sept7.parquet`: Uncompressed Parquet BTC and ETH data from Sept 7, 2021.
