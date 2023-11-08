@@ -1,6 +1,6 @@
 # Tech stock portfolio
 
-This folder contains a CSV file called `tech_stock_portfolio.csv` that contains data for 5 tech stocks from January 1, 2015 to March 1, 2018.  The stocks are:
+This folder contains three CSV files that contain data for 5 tech stocks. Two of the files contain data from January 1, 2015 to March 1, 2018, and the other is from May 20, 2022. The stocks are:
 
 - [Advanced Micro Devices](https://www.amd.com/en)
 - [NVIDIA](https://www.nvidia.com/en-us/)
@@ -15,6 +15,7 @@ Data for each stock is as follows:
 - Open price
 - High price
 - Low price
-- Volume
+
+`tech_stock_portfolio.csv` contains stock data in a wider format. `tech_stock_portfolio_slim.csv` contains data in a "slim" format.
 
 This tech stock portfolio is meant to be used as an instrument for learning how to analyze portfolios of securities with Deephaven Community Core.
