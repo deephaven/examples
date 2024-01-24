@@ -12,12 +12,12 @@ A calendar file can be used by Deephaven's calendar API to add a custom calendar
 
 ## Use a custom calendar
 
-Here's an example of the documentation for using a custom calendar:
+Here's an example that uses the calendar. It assumes you've copied this file to your local Deephaven installation.
 
 ```python
 from deephaven.calendar import add_calendar, calendar, calendar_names
 
-add_calendar("https://media.githubusercontent.com/media/deephaven/examples/main/Calendar/CompanyY_2024.calendar")
+add_calendar("/data/examples/Calendar/CompanyY_2024.calendar")
 
 print(calendar_names())
 
