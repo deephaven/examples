@@ -6,6 +6,7 @@ This folder contains three files, each containing information about [Robert De N
 
 - `deniro.csv`: A standard format CSV file with a header line that contains data on Robert De Niro's movies
 - `deniro_headerless.csv`: A standard format CSV file without a header line that contains data on Robert De Niro's movies
+- `deniro_poorly_formatted`: A copy of `deniro.csv` that contains several deliberate formatting errors.
 - `deniro.tsv` - A standard format TSV file that contains data on Robert De Niro's movies
 
 ## Fields in each file
