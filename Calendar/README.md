@@ -4,7 +4,7 @@ This folder contains a calendar file in XML format.
 
 ## Table of contents
 
-`TestCalendar_2024.calendar`: A calendar file for a hypothetical company, `A Company Named Company`, in XML format.
+`TestCalendar_2024.calendar`: A test calendar XML file.
 
 ## Calendar file
 

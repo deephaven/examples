@@ -1,13 +1,13 @@
 <calendar>
-    <name>CompanyY_2024</name>
+    <name>TestCalendar_2024</name>
     <timeZone>America/New_York</timeZone>
     <language>en</language>
     <country>US</country>
     <firstValidDate>2024-01-01</firstValidDate>
     <lastValidDate>2024-12-31</lastValidDate>
     <description>
-        Company Y calendar for the year 2024.
-        Company Y uses two business periods instead of one.
+        Test calendar for the year 2024.
+        This calendar uses two business periods instead of one.
         The periods are separated by a one hour lunch break.
         This calendar file defines standard business hours, weekends, and holidays.
     </description>
