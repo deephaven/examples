@@ -4,7 +4,7 @@ This folder contains a calendar file in XML format.
 
 ## Table of contents
 
-`CompanyY_2024.calendar`: A calendar file for a hypothetical company, `Company Y`, in XML format.
+`TestCalendar_2024.calendar`: A test calendar XML file.
 
 ## Calendar file
 
@@ -17,9 +17,9 @@ Here's an example that uses the calendar. It assumes you've copied this file to 
 ```python
 from deephaven.calendar import add_calendar, calendar, calendar_names
 
-add_calendar("/data/examples/Calendar/CompanyY_2024.calendar")
+add_calendar("/data/examples/Calendar/TestCalendar_2024.calendar")
 
 print(calendar_names())
 
-company_y_cal_2024 = calendar("CompanyY_2024")
+test_company_cal_2024 = calendar("TestCalendar_2024")
 ```
