@@ -91,7 +91,8 @@ function do_checkout_version()
 
 #####
 # set up the source and target info
-git_root_url="https://github.com/deephaven/examples.git"
+# The :@ is an empty username/password so git doesn't prompt
+git_root_url="https://:@github.com/deephaven/examples.git"
 
 target_path="/data/examples"
 
