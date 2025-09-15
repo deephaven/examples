@@ -91,7 +91,11 @@ function do_checkout_version()
 
 #####
 # set up the source and target info
-git_root_url="https://github.com/deephaven/examples.git"
+# The :@ indicates an empty username and password
+# Sometimes git prompts for username/password even though this is a public repo
+# Sometimes it does not prompt. I have no idea why this started prompting sometimes.
+# There doesn't seem to be another way to disable the prompt. Setting GIT_TERMINAL_PROMPT=false just makes the clone fail.
+git_root_url="https://:@github.com/deephaven/examples.git"
 
 target_path="/data/examples"
 
