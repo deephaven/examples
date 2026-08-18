@@ -1,6 +1,6 @@
 # Fantasy Football Data
 
-Sample data for the [AI at Your Draft Table](/blog/2026/08/25/fantasy-football-draft-ai) blog post. Contains 2026 preseason fantasy football projections and average draft position (ADP) data for PPR scoring.
+Sample data for the [AI at Your Draft Table](https://deephaven.io/blog/2026-08-25-fantasy-football-draft-ai/) blog post. Contains 2026 preseason fantasy football projections and average draft position (ADP) data for PPR scoring.
 
 ## Files
 
